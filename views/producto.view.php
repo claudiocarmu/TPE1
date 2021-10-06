@@ -43,9 +43,10 @@ class ProductoView {
     }
 
 
-    function showModifyProduct($producto) {
+    function showModifyProduct($producto, $categorias) {
         $this->smarty->assign('titulo', 'Modificación de productos');
-        $this->smarty->assign('item', $producto);
+        $this->smarty->assign('producto', $producto);
+        $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/modificarItems.tpl');
     }    
 

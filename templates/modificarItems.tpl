@@ -4,39 +4,42 @@
 {* Titulo modificación *}
 <h1 class="title"> {$titulo} </h1>
 
-{* Mostramos item a modificar *}
 
-
-<form name='formulario' action='modificar/{$item->id}' method='GET' class='my-4'>
+<form name='formulario' action='modificar/{$producto->id}' method='GET' class='my-4'>
     <div class='row'>
         <div class='col-2'>
             <div class='form-group'>
                 <label>SKU</label>
-                <input name='sku' type='text' class='form-control' value={$item->sku}>
+                <input name='sku' type='text' class='form-control' value={$producto->sku}>
             </div>
         </div>
         <div class='col-5'>
             <div class='form-group'>
                 <label>Descripcion</label>
-                <input name='descripcion' type='text' class='form-control' value="{$item->descripcion}">
+                <input name='descripcion' type='text' class='form-control' value="{$producto->descripcion}">
             </div>
         </div>
         <div class='col-2'>
             <div class='form-group'>
                 <label>Precio</label>
-                <input name='precio' class='form-control' value={$item->precio}>
+                <input name='precio' class='form-control' value={$producto->precio}>
             </div>
         </div>
         <div class='col-2'>
             <div class='form-group'>
-                <label>Categoria</label>
-                <input name='categoria' class='form-control' value={$item->categoria}>
+                <label>Categoria</label> 
+                {* <input name='categoria' class='form-control' value={$producto->categoria}> *}
+                <select class='form-control' name='categoria'>
+                    {foreach from=$categorias item=$categoria}    
+                        <option value="{$categoria->descripcion}"></option>
+                    {/foreach}
+                </select>   
             </div>
         </div>
         <div class='col-1'>
             <div class='form-group'>
                 <label>Stock</label>
-                <input name='stock' class='form-control' value={$item->stock}>
+                <input name='stock' class='form-control' value={$producto->stock}>
             </div>
         </div>
     </div>

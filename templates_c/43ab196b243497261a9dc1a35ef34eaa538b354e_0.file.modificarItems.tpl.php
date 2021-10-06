@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-06 23:22:12
+/* Smarty version 3.1.39, created on 2021-10-07 01:30:20
   from '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615e13849147f0_68415948',
+  'unifunc' => 'content_615e318c328694_45010589',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '43ab196b243497261a9dc1a35ef34eaa538b354e' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl',
-      1 => 1633555321,
+      1 => 1633563012,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_615e13849147f0_68415948 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615e318c328694_45010589 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -30,42 +30,52 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
  </h1>
 
 
-
-<form name='formulario' action='modificar/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+<form name='formulario' action='modificar/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 ' method='GET' class='my-4'>
     <div class='row'>
         <div class='col-2'>
             <div class='form-group'>
                 <label>SKU</label>
-                <input name='sku' type='text' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['item']->value->sku;?>
+                <input name='sku' type='text' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['producto']->value->sku;?>
 >
             </div>
         </div>
         <div class='col-5'>
             <div class='form-group'>
                 <label>Descripcion</label>
-                <input name='descripcion' type='text' class='form-control' value="<?php echo $_smarty_tpl->tpl_vars['item']->value->descripcion;?>
+                <input name='descripcion' type='text' class='form-control' value="<?php echo $_smarty_tpl->tpl_vars['producto']->value->descripcion;?>
 ">
             </div>
         </div>
         <div class='col-2'>
             <div class='form-group'>
                 <label>Precio</label>
-                <input name='precio' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['item']->value->precio;?>
+                <input name='precio' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['producto']->value->precio;?>
 >
             </div>
         </div>
         <div class='col-2'>
             <div class='form-group'>
-                <label>Categoria</label>
-                <input name='categoria' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['item']->value->categoria;?>
->
+                <label>Categoria</label> 
+                                <select class='form-control' name='categoria'>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categorias']->value, 'categoria');
+$_smarty_tpl->tpl_vars['categoria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
+$_smarty_tpl->tpl_vars['categoria']->do_else = false;
+?>    
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
+"></option>
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                </select>   
             </div>
         </div>
         <div class='col-1'>
             <div class='form-group'>
                 <label>Stock</label>
-                <input name='stock' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['item']->value->stock;?>
+                <input name='stock' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['producto']->value->stock;?>
 >
             </div>
         </div>

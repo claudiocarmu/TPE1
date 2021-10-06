@@ -62,7 +62,8 @@ class ProductoController {
 
     function formEditProduct($id) {
         $producto = $this->model->obtenerProducto($id);
-        $this->view->showModifyProduct($producto);
+        $categorias = $this->model->obtenerCategorias();
+        $this->view->showModifyProduct($producto, $categorias);
     }
 
     function formEditCategory($id) {
