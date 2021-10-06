@@ -13,7 +13,7 @@
         <tr>
             <td>{$item->descripcion}</td>
             <td class='d-inline p-2'><a class='btn btn-danger btn-sm' href='delCategory/{$item->id}'>Borrar<a></td>
-            <td class='d-inline p-2'><a class='btn btn-success btn-sm' href='formEditCategory/{$item->id}'>Modificar<a></td>
+            <td class='d-inline p-2'><a class='btn btn-success btn-sm' href='EditCategory/{$item->id}'>Modificar<a></td>
         </tr>
     {/foreach}
 </table>

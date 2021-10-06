@@ -23,7 +23,14 @@ class ProductoModel {
         $productos = $query->fetchAll(PDO::FETCH_OBJ); 
         return $productos;
     }
-
+    
+    function obtenerCategoria($id) {
+        $consulta = "SELECT * FROM categorias WHERE id=?";
+        $query = $this->db->prepare($consulta);
+        $query->execute([$id]);
+        $categoria = $query->fetch(PDO::FETCH_OBJ);
+        return $categoria;
+    }
    
     function obtenerProducto($id) {
         $consulta = "SELECT * FROM productos WHERE id=?";
@@ -51,6 +58,11 @@ class ProductoModel {
         $query->execute([$id]);
     }
 
+    function borrarCategoria($id) {    
+        $query = $this->db->prepare('DELETE FROM categorias WHERE id=?');
+        $query->execute([$id]);
+    }
+
     function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock) {
         try{
             $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -62,4 +74,18 @@ class ProductoModel {
             echo $error;
         }
     }    
+
+    function modificarCategoria($id, $descripcion) {
+        try{
+            $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $query = $this->db->prepare('UPDATE categorias SET descripcion=? WHERE id=?');
+            $query->execute([$descripcion, $id]);
+        }
+        catch (PDOException $error) {
+            $error->getMessage();
+            echo $error;
+        }
+    }    
+
+    
 }

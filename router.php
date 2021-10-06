@@ -24,14 +24,14 @@
         case 'listCategories':
             $controller->showCategories(); //muestra el listado de categorías con los botones
             break;
-        case 'addCategories':
-            $controller->addCategories(); //muestra 
-            break;
+        // case 'addCategories':
+        //     $controller->addCategories(); 
+        //     break;
         case 'showProducts':
             $controller->showProducts();
             break;
         case 'addProduct':
-            $controller->addProduct();
+            $controller->addProduct(); 
             break;
         case 'addCategory':
             $controller->addCategory();
@@ -39,11 +39,20 @@
         case 'borrar':
             $controller->delProducto($params[1]);
             break;
+        case 'delCategory':
+            $controller->delCategoria($params[1]);
+            break;
         case 'EditProduct':
             $controller->formEditProduct($params[1]);
             break;
+        case 'EditCategory':
+            $controller->formEditCategory($params[1]);
+            break;
         case 'modificar':
             $controller->modifyProducto($params[1]);
+            break;
+        case 'modificarCategoria':
+            $controller->modifyCategoria($params[1]);
             break;
         default:
             echo '404 - Página no encontrada';

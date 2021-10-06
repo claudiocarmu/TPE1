@@ -1,7 +1,8 @@
 <!-- Agrego un producto -->
+{include file = 'templates/header.tpl'}
 
 
-<form action="agregar" method="POST" class="my-3">
+<form action="addProduct" method="POST" class="my-3">
     <div class="row">
     <div class='col-2'>
         <div class='form-group'>
@@ -38,3 +39,6 @@
     <button type="submit" class="btn btn-secondary btn-sm">Agregar</button>
 </div> 
 </form>
+
+{* Incluímos el footer *}
+{include file = 'templates/footer.tpl'}

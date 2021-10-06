@@ -23,7 +23,7 @@ class ProductoController {
     }
 
     public function showCategories() {
-        $categorias = $this->model->obtenerProductos();
+        $categorias = $this->model->obtenerCategorias();
         $this->view->showCategories($categorias);
     }
 
@@ -32,13 +32,8 @@ class ProductoController {
         $this->view->showProducts($productos);
     }
 
-    function addCategories() {
-        include './templates/header.php';
-        include './templates/form_alta_cat.php';
-        include './templates/footer.php';
-    }
-
     function addProduct() {
+        $this->view->formAltaProducto();
         $sku = $_REQUEST['sku'];
         $descripcion = $_REQUEST['descripcion'];
         $precio = $_REQUEST['precio'];
@@ -49,6 +44,7 @@ class ProductoController {
     }
 
     function addCategory() {
+        $this->view->formAltaCategoria();
         $descripcion = $_REQUEST['descripcion'];
         $this->model->agregarCategoria($descripcion);
         header("Location: " . BASE_URL); 
@@ -59,15 +55,23 @@ class ProductoController {
         header("Location: " . BASE_URL. "showProducts");
     }
 
+    function delCategoria($id) {
+        $this->model->borrarCategoria($id);
+        header("Location: " . BASE_URL. "listCategories");
+    }
+
     function formEditProduct($id) {
         $producto = $this->model->obtenerProducto($id);
         $this->view->showModifyProduct($producto);
     }
 
+    function formEditCategory($id) {
+        $categoria = $this->model->obtenerCategoria($id);
+        $this->view->showModifyCategory($categoria);
+    }
+
     function modifyProducto($id){
-        echo('<pre>');
-        var_dump($id);
-        echo('</pre>');
+        
         if ((isset($_GET['sku']) || !empty($_GET['sku'])) && 
            (isset($_GET['descripcion']) || !empty($_GET['descripcion'])) &&
            (isset($_GET['precio']) || !empty($_GET['precio'])) &&
@@ -80,6 +84,15 @@ class ProductoController {
             $newStock = $_GET['stock'];
             $this->model->modificarProducto($id, $newSku, $newDescripcion, $newPrecio, $newCategoria, $newStock);
             header("Location: " . BASE_URL. "showProducts"); 
+        }
+    }
+
+    function modifyCategoria($id){
+        
+        if ((isset($_GET['descripcion']) || !empty($_GET['descripcion']))) {
+            $newDescripcion = $_GET['descripcion'];
+            $this->model->modificarCategoria($id, $newDescripcion);
+            header("Location: " . BASE_URL. "listCategories"); 
         }
     }
 
