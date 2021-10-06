@@ -1,6 +1,8 @@
 <!-- Agrego un producto -->
 {include file = 'templates/header.tpl'}
 
+{* Titulo modificación *}
+<h1 class="title"> {$titulo} </h1>
 
 <form action="addProduct" method="POST" class="my-3">
     <div class="row">

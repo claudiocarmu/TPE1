@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-06 16:56:24
+/* Smarty version 3.1.39, created on 2021-10-06 23:03:31
   from '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615db918d36d87_01071830',
+  'unifunc' => 'content_615e0f23625205_67957261',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b7dffd3b1c2f7cc0cd5b781cf6f1c512e165cc8e' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl',
-      1 => 1633532144,
+      1 => 1633554087,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_615db918d36d87_01071830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615e0f23625205_67957261 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Agrego un producto -->
 <?php $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
+<h1 class="title"> <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+ </h1>
 
 <form action="addProduct" method="POST" class="my-3">
     <div class="row">

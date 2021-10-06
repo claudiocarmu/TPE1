@@ -13,7 +13,7 @@
         <div class='col-9'>
             <div class='form-group'>
                 <label>Categoria</label>
-                <input name='descripcion' class='form-control' value={$categoria->descripcion}>
+                <input name='descripcion' class='form-control' value="{$categoria->descripcion}">
             </div>
         </div>
     </div>

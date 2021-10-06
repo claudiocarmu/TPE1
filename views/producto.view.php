@@ -22,7 +22,6 @@ class ProductoView {
     function showProducts($productos) {         
         $this->smarty->assign('titulo', 'Listado de productos');
         $this->smarty->assign('items',$productos);
-        
         $this->smarty->display('templates/showItems.tpl');
     }  
 
@@ -35,7 +34,6 @@ class ProductoView {
     function showProduct($productos) {
         $this->smarty->assign('titulo', 'Listado de productos');
         $this->smarty->assign('items',$productos);
-        
         $this->smarty->display('templates/showItems.tpl');
     }
     
@@ -48,7 +46,6 @@ class ProductoView {
     function showModifyProduct($producto) {
         $this->smarty->assign('titulo', 'Modificación de productos');
         $this->smarty->assign('item', $producto);
-        
         $this->smarty->display('templates/modificarItems.tpl');
     }    
 
