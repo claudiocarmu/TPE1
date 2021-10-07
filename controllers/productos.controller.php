@@ -44,10 +44,17 @@ class ProductoController {
     }
 
     function addCategory() {
-        $this->view->formAltaCategoria();
-        $descripcion = $_REQUEST['descripcion'];
-        $this->model->agregarCategoria($descripcion);
-        header("Location: " . BASE_URL); 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+            $descripcion = $_REQUEST['descripcion'];
+            $this->model->agregarCategoria($descripcion);
+            header("Location: " . BASE_URL); 
+        } 
+        else {
+            $this->view->formAltaCategoria();
+        }
+        
+        
     }
 
     function delProducto($id) {

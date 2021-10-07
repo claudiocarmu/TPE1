@@ -31,7 +31,7 @@
                 {* <input name='categoria' class='form-control' value={$producto->categoria}> *}
                 <select class='form-control' name='categoria'>
                     {foreach from=$categorias item=$categoria}    
-                        <option value="{$categoria->descripcion}"></option>
+                        <option value="{$categoria->id}"> {$categoria->descripcion}</option>
                     {/foreach}
                 </select>   
             </div>
