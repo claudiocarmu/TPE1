@@ -1,16 +1,20 @@
 <?php
 
-include_once('models/producto.model.php');
-include_once('views/producto.view.php');
+require_once('models/producto.model.php');
+require_once('views/producto.view.php');
+require_once('helpers/auth.helper.php');
 
 class ProductoController {
 
     private $model;
     private $view;
+    private $authHelper;
 
     public function __construct() {
         $this->model = new ProductoModel();
         $this->view = new ProductoView();
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
     }
     
     function showHome() {
@@ -39,6 +43,8 @@ class ProductoController {
     }
 
     function addProduct() {
+        $this->authHelper->checkLoggedIn();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {    
             $sku = $_REQUEST['sku'];
             $descripcion = $_REQUEST['descripcion'];
@@ -55,6 +61,8 @@ class ProductoController {
     }
 
     function addCategory() {
+        $this->authHelper->checkLoggedIn();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             $descripcion = $_REQUEST['descripcion'];
@@ -69,27 +77,37 @@ class ProductoController {
     }
 
     function delProducto($id) {
+        $this->authHelper->checkLoggedIn();
+
         $this->model->borrarProducto($id);
         header("Location: " . BASE_URL. "showProducts");
     }
 
     function delCategoria($id) {
+        $this->authHelper->checkLoggedIn();
+
         $this->model->borrarCategoria($id);
         header("Location: " . BASE_URL. "listCategories");
     }
 
     function formEditProduct($id) {
+        $this->authHelper->checkLoggedIn();
+
         $producto = $this->model->obtenerProducto($id);
         $categorias = $this->model->obtenerCategorias();
         $this->view->showModifyProduct($producto, $categorias);
     }
 
     function formEditCategory($id) {
+        $this->authHelper->checkLoggedIn();
+
         $categoria = $this->model->obtenerCategoria($id);
         $this->view->showModifyCategory($categoria);
     }
 
     function modifyProducto($id){
+        $this->authHelper->checkLoggedIn();
+
         
         if ((isset($_GET['sku']) || !empty($_GET['sku'])) && 
            (isset($_GET['descripcion']) || !empty($_GET['descripcion'])) &&
@@ -107,6 +125,8 @@ class ProductoController {
     }
 
     function modifyCategoria($id){
+        $this->authHelper->checkLoggedIn();
+
         
         if ((isset($_GET['descripcion']) || !empty($_GET['descripcion']))) {
             $newDescripcion = $_GET['descripcion'];
