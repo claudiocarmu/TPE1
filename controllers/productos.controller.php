@@ -32,15 +32,26 @@ class ProductoController {
         $this->view->showProducts($productos);
     }
 
+    function viewDetailProduct($id) {
+        $producto = $this->model->obtenerProducto($id);
+        $categoria = $this->model->obtenerCategoria($producto->categoria);
+        $this->view->showDetailProduct($producto, $categoria);
+    }
+
     function addProduct() {
-        $this->view->formAltaProducto();
-        $sku = $_REQUEST['sku'];
-        $descripcion = $_REQUEST['descripcion'];
-        $precio = $_REQUEST['precio'];
-        $categoria = $_REQUEST['categoria'];
-        $stock = $_REQUEST['stock'];
-        $this->model->agregarProducto($sku, $descripcion, $precio, $categoria, $stock);
-        header("Location: " . BASE_URL); 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {    
+            $sku = $_REQUEST['sku'];
+            $descripcion = $_REQUEST['descripcion'];
+            $precio = $_REQUEST['precio'];
+            $categoria = $_REQUEST['categoria'];
+            $stock = $_REQUEST['stock'];
+            $this->model->agregarProducto($sku, $descripcion, $precio, $categoria, $stock);
+            header("Location: " . BASE_URL); 
+        }
+        else {
+            $this->view->formAltaProducto();            
+        }
+
     }
 
     function addCategory() {

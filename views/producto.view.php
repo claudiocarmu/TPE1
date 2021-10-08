@@ -37,6 +37,13 @@ class ProductoView {
         $this->smarty->display('templates/showItems.tpl');
     }
     
+    function showDetailProduct($productos, $categoria) {
+        $this->smarty->assign('titulo', 'Detalle de producto');
+        $this->smarty->assign('item',$productos);
+        $this->smarty->assign('categoria',$categoria);
+        $this->smarty->display('templates/showDetailItems.tpl');
+    }
+
     function getHome() {
         include 'templates/header.tpl';
         include 'templates/footer.tpl';

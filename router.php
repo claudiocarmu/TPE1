@@ -54,6 +54,9 @@
         case 'modificarCategoria':
             $controller->modifyCategoria($params[1]);
             break;
+        case 'VerDetalleProducto':
+            $controller->viewDetailProduct($params[1]);
+            break;
         default:
             echo '404 - Página no encontrada';
             break;
