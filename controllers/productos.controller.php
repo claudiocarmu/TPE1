@@ -55,7 +55,8 @@ class ProductoController {
             header("Location: " . BASE_URL); 
         }
         else {
-            $this->view->formAltaProducto();            
+            $categorias = $this->model->obtenerCategorias();
+            $this->view->formAltaProducto($categorias);            
         }
 
     }

@@ -9,8 +9,9 @@ class ProductoView {
         $this->smarty = new Smarty();
     }
     
-    function formAltaProducto() {
+    function formAltaProducto($categorias) {
         $this->smarty->assign('titulo', 'Alta de producto');
+        $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/form_alta.tpl');
     }
 
