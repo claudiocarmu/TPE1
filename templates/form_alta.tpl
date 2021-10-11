@@ -25,10 +25,14 @@
         </div>
     </div>
     <div class='col-2'>
-        <div class='form-group'>
-            <label>Categoria</label>
-            <input name='categoria' class='form-control'> 
-        </div>
+            <div class='form-group'>
+                <label>Categoria</label> 
+                <select class='form-control' name='categoria'>
+                    {foreach from=$categorias item=$categoria}    
+                        <option value="{$categoria->id}"> {$categoria->descripcion}</option>
+                    {/foreach}
+                </select>   
+            </div>
     </div>
     <div class='col-1'>
         <div class='form-group'>

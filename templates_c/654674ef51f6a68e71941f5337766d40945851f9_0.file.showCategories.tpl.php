@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-11 04:13:48
-  from '/opt/lampp/htdocs/TPE1/templates/showItems.tpl' */
+/* Smarty version 3.1.39, created on 2021-10-11 02:20:13
+  from 'C:\xampp\htdocs\TPE1\templates\showCategories.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61639ddca561e0_77060591',
+  'unifunc' => 'content_6163833d5f0258_67267346',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '99824fc5e14ddd2f04b834a2472e2f6462e71858' => 
+    '654674ef51f6a68e71941f5337766d40945851f9' => 
     array (
-      0 => '/opt/lampp/htdocs/TPE1/templates/showItems.tpl',
-      1 => 1633918366,
+      0 => 'C:\\xampp\\htdocs\\TPE1\\templates\\showCategories.tpl',
+      1 => 1633911580,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61639ddca561e0_77060591 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6163833d5f0258_67267346 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -31,36 +31,27 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
 <ul class="list-group list-unstyled mt-5">
 <table class='table table-sm'>
     <tr>
-        <th>SKU</th> <th>DESCRIPCION</th> <th>PRECIO</th> <th>STOCK</th> <th>CATEGORIA</th>
+        <th>DESCRIPCION</th>
     </tr>
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['items']->value, 'item');
 $_smarty_tpl->tpl_vars['item']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 $_smarty_tpl->tpl_vars['item']->do_else = false;
-?>
+?> 
         <tr>
-            <td><?php echo $_smarty_tpl->tpl_vars['item']->value->sku;?>
-</td> 
             <td><?php echo $_smarty_tpl->tpl_vars['item']->value->descripcion;?>
-</td> 
-            <td><?php echo $_smarty_tpl->tpl_vars['item']->value->precio;?>
-</td> 
-            <td><?php echo $_smarty_tpl->tpl_vars['item']->value->stock;?>
-</td> 
-            <td><?php echo $_smarty_tpl->tpl_vars['item']->value->categoria;?>
 </td>
-            <td class='d-inline p-2'><a class='btn btn-danger btn-sm' href='borrar/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+            <td class='d-inline p-2'><a class='btn btn-danger btn-sm' href='delCategory/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
 '>Borrar<a></td>
-            <td class='d-inline p-2'><a class='btn btn-success btn-sm' href='EditProduct/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+            <td class='d-inline p-2'><a class='btn btn-success btn-sm' href='EditCategory/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
 '>Modificar<a></td>
-            <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='VerDetalleProducto/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+            <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='VerDetalleCategoria/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
 '>Ver detalle<a></td>
-        </tr>    
+        </tr>
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-
 </table>
 
 <?php $_smarty_tpl->_subTemplateRender('file:templates/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

@@ -17,7 +17,7 @@
         </div>
         {/if}
         
-        <button type="submit" class="btn btn-primary mt-3">Entrar</button>
+        <button type="submit" class="btn btn-success mt-3">Entrar</button>
     </form>
 </div>
 

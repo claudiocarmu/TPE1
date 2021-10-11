@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-08 21:33:21
-  from '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl' */
+/* Smarty version 3.1.39, created on 2021-10-10 20:49:40
+  from 'C:\xampp\htdocs\TPE1\templates\form_alta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61609d01b55390_13659387',
+  'unifunc' => 'content_616335c40f37e3_01091295',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b7dffd3b1c2f7cc0cd5b781cf6f1c512e165cc8e' => 
+    '5edda5be8954f7bf08ba29c012399eeda0ba4be3' => 
     array (
-      0 => '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl',
-      1 => 1633653909,
+      0 => 'C:\\xampp\\htdocs\\TPE1\\templates\\form_alta.tpl',
+      1 => 1633780391,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61609d01b55390_13659387 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616335c40f37e3_01091295 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Agrego un producto -->
 <?php $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -51,10 +51,23 @@ function content_61609d01b55390_13659387 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
     <div class='col-2'>
-        <div class='form-group'>
-            <label>Categoria</label>
-            <input name='categoria' class='form-control'> 
-        </div>
+            <div class='form-group'>
+                <label>Categoria</label> 
+                <select class='form-control' name='categoria'>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categorias']->value, 'categoria');
+$_smarty_tpl->tpl_vars['categoria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
+$_smarty_tpl->tpl_vars['categoria']->do_else = false;
+?>    
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
+</option>
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                </select>   
+            </div>
     </div>
     <div class='col-1'>
         <div class='form-group'>

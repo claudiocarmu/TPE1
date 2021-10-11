@@ -23,6 +23,14 @@ class ProductoModel {
         $productos = $query->fetchAll(PDO::FETCH_OBJ); 
         return $productos;
     }
+
+    function obtenerProductosOfCategory($idCat) {
+        $consulta = "SELECT productos.*, categorias.descripcion as categoria FROM productos JOIN categorias ON productos.categoria = categorias.id WHERE categoria=?";
+        $query = $this->db->prepare($consulta);
+        $query->execute([$idCat]);
+        $productos = $query->fetchAll(PDO::FETCH_OBJ); 
+        return $productos;
+    }
     
     function obtenerCategoria($id) {
         $consulta = "SELECT * FROM categorias WHERE id=?";

@@ -9,8 +9,9 @@ class ProductoView {
         $this->smarty = new Smarty();
     }
     
-    function formAltaProducto() {
+    function formAltaProducto($categorias) {
         $this->smarty->assign('titulo', 'Alta de producto');
+        $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/form_alta.tpl');
     }
 
@@ -44,10 +45,15 @@ class ProductoView {
         $this->smarty->display('templates/showDetailItems.tpl');
     }
 
-    function getHome() {
-        include 'templates/header.tpl';
-        include 'templates/footer.tpl';
+    function showDetailCategory($categoria) {
+        $this->smarty->assign('titulo', 'Detalle de categoria');
+        $this->smarty->assign('item',$categoria);
+        $this->smarty->display('templates/showDetailCategory.tpl');
     }
+
+     function getHome() {
+        $this->smarty->display('templates/home.tpl');
+     }
 
 
     function showModifyProduct($producto, $categorias) {
@@ -62,4 +68,11 @@ class ProductoView {
         $this->smarty->assign('categoria', $categoria);
         $this->smarty->display('templates/modificarCategoria.tpl');
     }
+
+    function showErrorCategory($error = null) {   
+        $this->smarty->assign('error', $error);       
+        $this->smarty->display('templates/showErrorDelCategory.tpl');    
+    }
+    
+       
 }

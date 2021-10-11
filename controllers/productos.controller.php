@@ -14,7 +14,6 @@ class ProductoController {
         $this->model = new ProductoModel();
         $this->view = new ProductoView();
         $this->authHelper = new AuthHelper();
-        $this->authHelper->checkLoggedIn();
     }
     
     function showHome() {
@@ -36,10 +35,20 @@ class ProductoController {
         $this->view->showProducts($productos);
     }
 
+    function showProductsOfCategory($idCat) {
+        $productos = $this->model->obtenerProductosOfCategory($idCat); ////////
+        $this->view->showProducts($productos);
+    }
+
     function viewDetailProduct($id) {
         $producto = $this->model->obtenerProducto($id);
         $categoria = $this->model->obtenerCategoria($producto->categoria);
         $this->view->showDetailProduct($producto, $categoria);
+    }
+
+    function viewDetailCategory($id) {
+        $categoria = $this->model->obtenerCategoria($id);
+        $this->view->showDetailCategory($categoria);
     }
 
     function addProduct() {
@@ -55,7 +64,8 @@ class ProductoController {
             header("Location: " . BASE_URL); 
         }
         else {
-            $this->view->formAltaProducto();            
+            $categorias = $this->model->obtenerCategorias();
+            $this->view->formAltaProducto($categorias);            
         }
 
     }
@@ -85,9 +95,24 @@ class ProductoController {
 
     function delCategoria($id) {
         $this->authHelper->checkLoggedIn();
-
-        $this->model->borrarCategoria($id);
-        header("Location: " . BASE_URL. "listCategories");
+        $productos = $this->model->obtenerProductos();     
+        $categoria = $this->model->obtenerCategoria($id);  
+        $existeCategoria = FALSE;
+        $cantProductos = count($productos);
+        $indice = 0;
+        while (($existeCategoria == FALSE) && ($indice < $cantProductos)) {
+                if ($categoria->descripcion == $productos[$indice]->categoria){
+                    $existeCategoria = TRUE;
+                }
+                $indice++;
+        }
+        if ($existeCategoria == FALSE) {
+            $this->model->borrarCategoria($id);      
+            header("Location: " . BASE_URL. "listCategories");
+        }
+        else {
+            $this->view->showErrorCategory("No es posible eliminar la categoria porque tiene productos asociados.");
+        } 
     }
 
     function formEditProduct($id) {

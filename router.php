@@ -83,6 +83,15 @@
             $controller = new ProductoController();
             $controller->viewDetailProduct($params[1]);
             break;
+        case 'VerDetalleCategoria':
+                $controller = new ProductoController();
+                $controller->viewDetailCategory($params[1]);
+                break;    
+        case 'verProductosAsociados':
+            $controller = new ProductoController();
+            $controller->showProductsOfCategory($params[1]);
+            break;
+        
         default:
             echo '404 - Página no encontrada';
             break;
