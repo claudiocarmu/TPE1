@@ -21,11 +21,6 @@ class ProductoController {
         $this->view->getHome();
     }
    
-    //public function showProduct() {
-    //     $productos = $this->model->obtenerProductos();
-    //     $this->view->showProduct($productos);
-    // }
-
     // Muestra el listado de categorías con los botones
     public function showCategories() {
         $categorias = $this->model->obtenerCategorias();
