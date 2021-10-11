@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-11 02:20:13
+/* Smarty version 3.1.39, created on 2021-10-11 15:35:38
   from 'C:\xampp\htdocs\TPE1\templates\showCategories.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6163833d5f0258_67267346',
+  'unifunc' => 'content_61643daa5c78e4_51204044',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '654674ef51f6a68e71941f5337766d40945851f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE1\\templates\\showCategories.tpl',
-      1 => 1633911580,
+      1 => 1633959334,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6163833d5f0258_67267346 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61643daa5c78e4_51204044 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -48,6 +48,9 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 '>Modificar<a></td>
             <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='VerDetalleCategoria/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
 '>Ver detalle<a></td>
+            <td class='d-inline p-2'><a class='btn btn-secondary btn-sm' href='verProductosAsociados/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+'>Ver productos asociados<a></td>
+
         </tr>
     <?php
 }

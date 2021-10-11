@@ -48,12 +48,12 @@
                         </ul>
                     </li>
                     <li class="nav-item ms-auto">
-                            {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
-                                <a class="nav-link" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
+                            {if isset($smarty.session.USER_ID)} 
+                                <a class="nav-link active" href="logout">{$smarty.session.USER_EMAIL}    Logout</a>
                             {else}
-                                <a class="nav-link" href="login">Ingresar</a>
+                                <a class="nav-link active" href="login">Ingresar</a>
                             {/if}
-                        </li>
+                    </li>
 
                 </ul>
                 </div>

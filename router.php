@@ -12,40 +12,36 @@
     }
 
     $params = explode('/', $action);
-
-    
-    
-
-
+ 
     switch ($params[0]) {
         
         case 'home':
             $controller = new ProductoController();
-            $controller->showHome(); //muestra la pantalla principal Home
+            $controller->showHome(); 
             break;
         case 'listProducts':
             $controller = new ProductoController();
-            $controller->showProducts(); //muestra el listado de productos con los botones
+            $controller->showProducts(); 
             break;
         case 'listCategories':
             $controller = new ProductoController();
-            $controller->showCategories(); //muestra el listado de categorías con los botones
+            $controller->showCategories(); 
             break;
         case 'login':
             $authController = new AuthController();
-            $authController->showLogin();
+            $authController->showLogin(); 
             break;
         case 'verify': 
             $authController = new AuthController();
-            $authController->login();
+            $authController->login(); 
             break;
         case 'logout': 
             $authController = new AuthController();
-            $authController->logout();
+            $authController->logout(); 
             break;  
         case 'showProducts':
             $controller = new ProductoController();
-            $controller->showProducts();
+            $controller->showProducts();  
             break;
         case 'addProduct':
             $controller = new ProductoController();
@@ -53,45 +49,44 @@
             break;
         case 'addCategory':
             $controller = new ProductoController();
-            $controller->addCategory();
+            $controller->addCategory(); 
             break;
         case 'borrar':
             $controller = new ProductoController();
-            $controller->delProducto($params[1]);
+            $controller->delProducto($params[1]); 
             break;
         case 'delCategory':
             $controller = new ProductoController();
-            $controller->delCategoria($params[1]);
+            $controller->delCategoria($params[1]);  
             break;
         case 'EditProduct':
             $controller = new ProductoController();
-            $controller->formEditProduct($params[1]);
+            $controller->formEditProduct($params[1]);  
             break;
         case 'EditCategory':
             $controller = new ProductoController();
-            $controller->formEditCategory($params[1]);
+            $controller->formEditCategory($params[1]); 
             break;
         case 'modificar':
             $controller = new ProductoController();
-            $controller->modifyProducto($params[1]);
+            $controller->modifyProducto($params[1]);  
             break;
         case 'modificarCategoria':
             $controller = new ProductoController();
-            $controller->modifyCategoria($params[1]);
+            $controller->modifyCategoria($params[1]);  
             break;
         case 'VerDetalleProducto':
             $controller = new ProductoController();
-            $controller->viewDetailProduct($params[1]);
+            $controller->viewDetailProduct($params[1]);  
             break;
         case 'VerDetalleCategoria':
-                $controller = new ProductoController();
-                $controller->viewDetailCategory($params[1]);
-                break;    
+            $controller = new ProductoController();
+            $controller->viewDetailCategory($params[1]);  
+            break;    
         case 'verProductosAsociados':
             $controller = new ProductoController();
-            $controller->showProductsOfCategory($params[1]);
+            $controller->showProductsOfCategory($params[1]);  
             break;
-        
         default:
             echo '404 - Página no encontrada';
             break;

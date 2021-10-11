@@ -14,23 +14,22 @@ class AuthController {
         $this->authHelper = new AuthHelper();
     }
 
+    // Muestra el formulario para loguearse
     public function showLogin() {
         $this->view->showFormLogin();
     }
 
-    // Corroboramos que los datos de mail y contraseña son válidos
+    // Obtiene los datos del login y los valida
     public function login() {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-     
             $user = $this->model->getUser($email);
-     
+
             if ($user && password_verify($password, $user->password)) {
                 session_start();
                 $_SESSION['USER_ID'] = $user->id;
                 $_SESSION['USER_EMAIL'] = $user->email;
-
                 header("Location: " . BASE_URL);
             } else {
                 $this->view->showFormLogin("Usuario o contraseña inválida");
@@ -38,6 +37,7 @@ class AuthController {
         }
     }
 
+    // Cierra la sesion
     public function logout() {
         $this->authHelper->logout();
     }
