@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-06 23:18:20
-  from '/opt/lampp/htdocs/TPE1/templates/modificarCategoria.tpl' */
+/* Smarty version 3.1.39, created on 2021-10-10 22:27:35
+  from 'C:\xampp\htdocs\TPE1\templates\form_alta_cat.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_615e129c7d9b72_56804859',
+  'unifunc' => 'content_61634cb7c17c53_68840228',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '6858e303c2945e2ae48170c686c9a8d00833b7e1' => 
+    '7c83176fb56180c943fdf25f55213f73050ce895' => 
     array (
-      0 => '/opt/lampp/htdocs/TPE1/templates/modificarCategoria.tpl',
-      1 => 1633555028,
+      0 => 'C:\\xampp\\htdocs\\TPE1\\templates\\form_alta_cat.tpl',
+      1 => 1633741251,
       2 => 'file',
     ),
   ),
@@ -22,28 +22,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_615e129c7d9b72_56804859 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61634cb7c17c53_68840228 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <h1 class="title"> <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
  </h1>
 
-
-
-<form name='formulario' action='modificarCategoria/<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
-' method='GET' class='my-4'>
-    <div class='row'>
-       
-        <div class='col-9'>
+<form action="addCategory" method="POST" class="my-3">
+    <div class="row">
+        <div class='col-2'>
             <div class='form-group'>
-                <label>Categoria</label>
-                <input name='descripcion' class='form-control' value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
-">
+                <label>Categría: </label>
+                <input name='descripcion' class='form-control'>
             </div>
         </div>
     </div>
-    <button type='submit' class='btn btn-primary mt-2'>Guardar Modificación</button>
+<div class='mt-2'>
+    <button type="submit" class="btn btn-secondary btn-sm">Agregar</button>
+</div> 
 </form>
 
 <?php $_smarty_tpl->_subTemplateRender('file:templates/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

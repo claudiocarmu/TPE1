@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-09 03:17:43
+/* Smarty version 3.1.39, created on 2021-10-09 20:20:12
   from 'C:\xampp\htdocs\TPE1\templates\formLogin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6160edb7c69e34_58619879',
+  'unifunc' => 'content_6161dd5c5f6b91_36040537',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '353f8f802027fcc9e48b11d7a4eb170709e98911' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE1\\templates\\formLogin.tpl',
-      1 => 1633741251,
+      1 => 1633751534,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6160edb7c69e34_58619879 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6161dd5c5f6b91_36040537 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -44,7 +44,7 @@ $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_sm
         </div>
         <?php }?>
         
-        <button type="submit" class="btn btn-primary mt-3">Entrar</button>
+        <button type="submit" class="btn btn-success mt-3">Entrar</button>
     </form>
 </div>
 

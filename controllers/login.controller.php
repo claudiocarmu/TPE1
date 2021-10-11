@@ -27,7 +27,6 @@ class AuthController {
             $user = $this->model->getUser($email);
      
             if ($user && password_verify($password, $user->password)) {
-                // $this->authHelper->login($user);
                 session_start();
                 $_SESSION['USER_ID'] = $user->id;
                 $_SESSION['USER_EMAIL'] = $user->email;
