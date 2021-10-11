@@ -98,7 +98,7 @@ class ProductoController {
     function delProducto($id) {
         $this->authHelper->checkLoggedIn();
         $this->model->borrarProducto($id);
-        header("Location: " . BASE_URL. "showProducts");
+        header("Location: " . BASE_URL. "listProducts");
     }
 
     // Elimina una categoria
@@ -140,7 +140,7 @@ class ProductoController {
     }
 
     // Mofifica el producto elegido
-    function modifyProducto($id){
+    function getModifyProduct($id){
         $this->authHelper->checkLoggedIn();
         
         if ((isset($_GET['sku']) || !empty($_GET['sku'])) && 
@@ -154,12 +154,12 @@ class ProductoController {
            $newCategoria = $_GET['categoria'];
            $newStock = $_GET['stock'];
            $this->model->modificarProducto($id, $newSku, $newDescripcion, $newPrecio, $newCategoria, $newStock);
-           header("Location: " . BASE_URL. "showProducts"); 
+           header("Location: " . BASE_URL. "listProducts"); 
         }
     }
 
     // Modifica la categoria elegida
-    function modifyCategoria($id){
+    function getModifyCategory($id){
         $this->authHelper->checkLoggedIn();
         
         if ((isset($_GET['descripcion']) || !empty($_GET['descripcion']))) {

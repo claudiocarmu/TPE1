@@ -17,7 +17,7 @@
             <td>{$item->precio}</td> 
             <td>{$item->stock}</td> 
             <td>{$item->categoria}</td>
-            <td class='d-inline p-2'><a class='btn btn-danger btn-sm' href='borrar/{$item->id}'>Borrar<a></td>
+            <td class='d-inline p-2'><a class='btn btn-danger btn-sm' href='delProduct/{$item->id}'>Borrar<a></td>
             <td class='d-inline p-2'><a class='btn btn-success btn-sm' href='EditProduct/{$item->id}'>Modificar<a></td>
             <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='VerDetalleProducto/{$item->id}'>Ver detalle<a></td>
         </tr>    

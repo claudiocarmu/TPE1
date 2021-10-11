@@ -19,39 +19,36 @@
             $controller = new ProductoController();
             $controller->showHome(); 
             break;
-        case 'listProducts':
+        case 'addCategory':
             $controller = new ProductoController();
-            $controller->showProducts(); 
-            break;
-        case 'listCategories':
-            $controller = new ProductoController();
-            $controller->showCategories(); 
-            break;
-        case 'login':
-            $authController = new AuthController();
-            $authController->showLogin(); 
-            break;
-        case 'verify': 
-            $authController = new AuthController();
-            $authController->login(); 
-            break;
-        case 'logout': 
-            $authController = new AuthController();
-            $authController->logout(); 
-            break;  
-        case 'showProducts':
-            $controller = new ProductoController();
-            $controller->showProducts();  
+            $controller->addCategory(); 
             break;
         case 'addProduct':
             $controller = new ProductoController();
             $controller->addProduct(); 
             break;
-        case 'addCategory':
+        case 'listCategories':
             $controller = new ProductoController();
-            $controller->addCategory(); 
+            $controller->showCategories(); 
             break;
-        case 'borrar':
+        case 'listProducts':
+            $controller = new ProductoController();
+            $controller->showProducts(); 
+            break;
+        case 'login':
+            $authController = new AuthController();
+            $authController->showLogin(); 
+            break;
+        case 'logout': 
+            $authController = new AuthController();
+            $authController->logout(); 
+            break;  
+        case 'verify': 
+            $authController = new AuthController();
+            $authController->login(); 
+            break;
+       
+        case 'delProduct':
             $controller = new ProductoController();
             $controller->delProducto($params[1]); 
             break;
@@ -69,11 +66,11 @@
             break;
         case 'modificar':
             $controller = new ProductoController();
-            $controller->modifyProducto($params[1]);  
+            $controller->getModifyProduct($params[1]);  
             break;
         case 'modificarCategoria':
             $controller = new ProductoController();
-            $controller->modifyCategoria($params[1]);  
+            $controller->getModifyCategory($params[1]);  
             break;
         case 'VerDetalleProducto':
             $controller = new ProductoController();
