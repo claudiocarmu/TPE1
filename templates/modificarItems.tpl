@@ -30,7 +30,11 @@
                 <label>Categoria</label> 
                 <select class='form-control' name='categoria'>
                     {foreach from=$categorias item=$categoria}    
-                        <option value="{$categoria->id}"> {$categoria->descripcion}</option>
+                        {if $categoria->id == $producto->categoria}
+                            <option selected value="{$categoria->id}"> {$categoria->descripcion}</option>
+                        {else}
+                            <option value="{$categoria->id}"> {$categoria->descripcion}</option>
+                        {/if}
                     {/foreach}
                 </select>   
             </div>

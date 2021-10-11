@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-11 04:39:35
+/* Smarty version 3.1.39, created on 2021-10-11 21:54:33
   from '/opt/lampp/htdocs/TPE1/templates/showCategories.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6163a3e787a8b3_22980852',
+  'unifunc' => 'content_61649679034469_11505285',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4c1426b461b398f6a2815d3fcc24826be0efb49d' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/showCategories.tpl',
-      1 => 1633918730,
+      1 => 1633979443,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6163a3e787a8b3_22980852 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61649679034469_11505285 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -48,7 +48,7 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 '>Modificar<a></td>
             <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='VerDetalleCategoria/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
 '>Ver detalle<a></td>
-            <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='verProductosAsociados/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+            <td class='d-inline p-2'><a class='btn btn-secondary btn-sm' href='verProductosAsociados/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
 '>Ver productos asociados<a></td>
 
         </tr>

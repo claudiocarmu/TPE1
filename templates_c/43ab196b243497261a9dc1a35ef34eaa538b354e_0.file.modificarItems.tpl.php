@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-11 21:31:30
+/* Smarty version 3.1.39, created on 2021-10-11 22:02:51
   from '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616491120cb1a5_91781382',
+  'unifunc' => 'content_6164986baaabd4_32817575',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '43ab196b243497261a9dc1a35ef34eaa538b354e' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl',
-      1 => 1633980683,
+      1 => 1633982563,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_616491120cb1a5_91781382 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6164986baaabd4_32817575 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -64,9 +64,15 @@ $_smarty_tpl->tpl_vars['categoria']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
 $_smarty_tpl->tpl_vars['categoria']->do_else = false;
 ?>    
-                        <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+                        <?php if ($_smarty_tpl->tpl_vars['categoria']->value->id == $_smarty_tpl->tpl_vars['producto']->value->categoria) {?>
+                            <option selected value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
 "> <?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
 </option>
+                        <?php } else { ?>
+                            <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
+"> <?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
+</option>
+                        <?php }?>
                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
