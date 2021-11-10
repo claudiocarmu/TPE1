@@ -39,6 +39,10 @@
             $authController = new AuthController();
             $authController->showLogin(); 
             break;
+        case 'register':
+            $authController = new AuthController();
+            $authController->showRegister(); 
+            break;
         case 'logout': 
             $authController = new AuthController();
             $authController->logout(); 
@@ -47,7 +51,26 @@
             $authController = new AuthController();
             $authController->login(); 
             break;
-       
+        case 'verifyRegister': 
+            $authController = new AuthController();
+            $authController->register(); 
+            break;
+        case 'usuarios':
+            $authController = new AuthController();
+            $authController->showUsers();
+            break;
+        case 'delUser':
+            $authController = new AuthController();
+            $authController->delUser($params[1]);
+            break;
+        case 'editUser':
+            $authController = new AuthController();
+            $authController->editUser($params[1]);
+            break;
+        case 'modificarUsuario':
+            $authController = new AuthController();
+            $authController->modifyUser($params[1]);
+            break;
         case 'delProduct':
             $controller = new ProductoController();
             $controller->delProducto($params[1]); 

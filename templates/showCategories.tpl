@@ -9,7 +9,7 @@
         <th>DESCRIPCION</th>
     </tr>
 {* listado *}
-    {foreach from=$items item=item} 
+    {foreach from=$items item=$item} 
         <tr>
             <td>{$item->descripcion}</td>
             <td class='d-inline p-2'><a class='btn btn-danger btn-sm' href='delCategory/{$item->id}'>Borrar<a></td>

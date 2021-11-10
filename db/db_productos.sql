@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2021 a las 21:29:42
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.9
+-- Servidor: localhost
+-- Tiempo de generación: 10-11-2021 a las 02:59:17
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ INSERT INTO `categorias` (`id`, `descripcion`) VALUES
 (41, 'Gamers'),
 (46, 'Monitores'),
 (48, 'Mouses'),
-(51, 'Teclados');
+(51, 'Teclados'),
+(52, 'Varios auxiliar');
 
 -- --------------------------------------------------------
 
@@ -120,15 +121,17 @@ INSERT INTO `productos` (`id`, `categoria`, `sku`, `descripcion`, `precio`, `sto
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL
+  `password` varchar(200) NOT NULL,
+  `rol` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `password`) VALUES
-(1, 'juanclaudio@gmail.com', '$2y$10$ZdIctmZ/9y32AtGIBXc9D.KwHfXB4yM3zf0202WdT1hu0C.L2Vmj2');
+INSERT INTO `usuarios` (`id`, `email`, `password`, `rol`) VALUES
+(13, 'admin@gmail.com', '$2a$12$R2P0P5MkpWECfbCuC6WcA.aL4vUMWzOljas9Axa8ire4yEhjPZNWa', 'A'),
+(15, 'claudio@gmail.com', '$2y$10$dBWQaAlmS8Q0fBAlYXJ6iOXgmTAEbWe7rlzllu.2Vk1fBAoW8RdE6', 'N');
 
 --
 -- Índices para tablas volcadas
@@ -161,7 +164,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -173,7 +176,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas
@@ -183,7 +186,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categorias` (`ID`);
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categorias` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

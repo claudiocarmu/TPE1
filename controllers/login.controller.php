@@ -19,6 +19,10 @@ class AuthController {
         $this->view->showFormLogin();
     }
 
+    public function showRegister() {
+        $this->view->showFormRegister();
+    }
+
     // Obtiene los datos del login y los valida
     public function login() {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
@@ -30,11 +34,59 @@ class AuthController {
                 session_start();
                 $_SESSION['USER_ID'] = $user->id;
                 $_SESSION['USER_EMAIL'] = $user->email;
+                $_SESSION['USER_ROL'] = 'A';
                 header("Location: " . BASE_URL);
             } else {
                 $this->view->showFormLogin("Usuario o contraseña inválida");
             }
         }
+    }
+
+    // Registro nuevo Usuario (No administrador)
+    public function register() {
+        if (!empty($_POST['email']) && !empty($_POST['password1']) && !empty($_POST['password2'])) {
+            
+            $email = $_POST['email'];
+            $password1 = $_POST['password1'];
+            $password2 = $_POST['password2'];
+            if ($password1 == $password2) {
+                $rol = 'N';
+                $user = $this->model->addUser($email, $password1, $rol);
+                session_start();
+                $_SESSION['USER_ID'] = $user;
+                $_SESSION['USER_EMAIL'] = $email;
+                $_SESSION['USER_ROL'] = $rol;
+                header("Location: " . BASE_URL);
+            } else {
+                $this->view->showFormRegister("No coinciden los password");             
+            }
+        } else {
+            $this->view->showFormRegister("Faltan ingresar datos");
+        }     
+    }
+
+    public function showUsers() {
+        $users = $this->model->obtenerUsuarios();
+        $this->view->showUsers($users);
+        
+    }
+
+    public function delUser($id) {
+        $this->model->borrarUsuario($id);
+        header("Location: " . BASE_URL);
+    }
+
+    public function editUser($id) {
+        $user = $this->model->obtenerUsuario($id);
+        $this->view->editUser($user);
+    }
+
+    public function modifyUser($id) {     
+        if (!empty($_GET['rol']) && (($_GET['rol']=='A') || ($_GET['rol']=='N'))) {
+            $newRol = $_GET['rol'];
+            $this->model->modificarRol($id, $newRol); 
+        }
+        header("Location: " . BASE_URL. "usuarios");
     }
 
     // Cierra la sesion

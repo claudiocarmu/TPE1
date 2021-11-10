@@ -50,8 +50,18 @@
                     <li class="nav-item ms-auto">
                             {if isset($smarty.session.USER_ID)} 
                                 <a class="nav-link" href="logout">{$smarty.session.USER_EMAIL} Logout</a>
+                                {if ($smarty.session.USER_ROL == 'A')}
+                                    <li>
+                                        <a class="nav-link" href="usuarios">Usuarios</a>
+                                    </li>
+                                {/if}
                             {else}
-                                <a class="nav-link" href="login">Ingresar</a>
+                                <li>
+                                    <a class="nav-link" href="login">Ingresar</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="register">Registrarse</a>
+                                </li>
                             {/if}
                     </li>
 

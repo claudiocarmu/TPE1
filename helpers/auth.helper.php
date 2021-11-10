@@ -17,6 +17,11 @@ class AuthHelper {
         if (empty($_SESSION['USER_ID'])) {
             header("Location: " . BASE_URL . 'login');
             die();
+        } else {
+            if ($_SESSION['USER_ROL'] == 'N') {
+                header("Location: " . BASE_URL . 'login');
+                die();
+            }
         }
     }
 

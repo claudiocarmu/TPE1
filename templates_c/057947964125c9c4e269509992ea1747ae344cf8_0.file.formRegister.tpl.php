@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-09 22:35:36
-  from '/opt/lampp/htdocs/TPE1/templates/formLogin.tpl' */
+/* Smarty version 3.1.39, created on 2021-11-09 22:44:20
+  from '/opt/lampp/htdocs/TPE1/templates/formRegister.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618ae9a815d6c4_35245185',
+  'unifunc' => 'content_618aebb44cc6b6_92623438',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'bc5996662a5c8448f573775142a064dd0335860d' => 
+    '057947964125c9c4e269509992ea1747ae344cf8' => 
     array (
-      0 => '/opt/lampp/htdocs/TPE1/templates/formLogin.tpl',
-      1 => 1636493697,
+      0 => '/opt/lampp/htdocs/TPE1/templates/formRegister.tpl',
+      1 => 1636492596,
       2 => 'file',
     ),
   ),
@@ -22,19 +22,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_618ae9a815d6c4_35245185 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618aebb44cc6b6_92623438 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <div class="mt-5 w-25 mx-auto">
-    <form method="POST" action="verify">
+
+    <form method="POST" action="verifyRegister"> 
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" required class="form-control" id="email" name="email" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" required class="form-control" id="password" name="password">
+            <label>Password</label>
+            <input type="password" required class="form-control" id="password1" name="password1">
+        </div>
+        <div class="form-group">
+            <label>Reingrese Password</label>
+            <input type="password" required class="form-control" id="password2" name="password2">
         </div>
 
         <?php if ($_smarty_tpl->tpl_vars['error']->value) {?> 
@@ -44,7 +49,7 @@ $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_sm
         </div>
         <?php }?>
         
-        <button type="submit" class="btn btn-success mt-3">Entrar</button>
+        <button type="submit" class="btn btn-success mt-3">Registrarse</button>
     </form>
 </div>
 

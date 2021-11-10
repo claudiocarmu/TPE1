@@ -1,4 +1,4 @@
-<!-- Agrego un producto -->
+
 {include file = 'templates/header.tpl'}
 
 {* Encabezado de la lista *}

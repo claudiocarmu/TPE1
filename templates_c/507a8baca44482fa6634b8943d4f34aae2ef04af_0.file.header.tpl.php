@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-11 21:56:42
+/* Smarty version 3.1.39, created on 2021-11-10 00:21:39
   from '/opt/lampp/htdocs/TPE1/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616496fa755743_57718486',
+  'unifunc' => 'content_618b02834a9032_93740633',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '507a8baca44482fa6634b8943d4f34aae2ef04af' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/header.tpl',
-      1 => 1633982198,
+      1 => 1636500094,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_616496fa755743_57718486 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618b02834a9032_93740633 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -75,8 +75,18 @@ function content_616496fa755743_57718486 (Smarty_Internal_Template $_smarty_tpl)
                             <?php if ((isset($_SESSION['USER_ID']))) {?> 
                                 <a class="nav-link" href="logout"><?php echo $_SESSION['USER_EMAIL'];?>
  Logout</a>
+                                <?php if (($_SESSION['USER_ROL'] == 'A')) {?>
+                                    <li>
+                                        <a class="nav-link" href="usuarios">Usuarios</a>
+                                    </li>
+                                <?php }?>
                             <?php } else { ?>
-                                <a class="nav-link" href="login">Ingresar</a>
+                                <li>
+                                    <a class="nav-link" href="login">Ingresar</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="register">Registrarse</a>
+                                </li>
                             <?php }?>
                     </li>
 
