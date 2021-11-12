@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-11-2021 a las 02:59:17
+-- Tiempo de generación: 13-11-2021 a las 00:32:18
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.7
 
@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `descripcion`) VALUES
-(31, 'Notebooks'),
+(31, 'Notebook'),
 (36, 'Discos Rígidos'),
 (37, 'Discos SSD'),
 (39, 'Fuentes de Alimentación'),
@@ -46,6 +46,27 @@ INSERT INTO `categorias` (`id`, `descripcion`) VALUES
 (48, 'Mouses'),
 (51, 'Teclados'),
 (52, 'Varios auxiliar');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `comentario` varchar(200) NOT NULL,
+  `puntuacion` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `id_producto`, `comentario`, `puntuacion`) VALUES
+(1, 22, 'comentario 22', 1),
+(2, 22, 'comentario 22-b', 2);
 
 -- --------------------------------------------------------
 
@@ -144,6 +165,12 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -165,6 +192,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
