@@ -5,6 +5,7 @@ class UserModel {
 
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
+        $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 
     function getUser($email) {
@@ -41,8 +42,7 @@ class UserModel {
     }
 
     function modificarRol($id, $rol) {
-        try{
-            $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        try{        
             $query = $this->db->prepare('UPDATE usuarios SET rol=? WHERE id=?');
             $query->execute([$rol, $id]);
         }

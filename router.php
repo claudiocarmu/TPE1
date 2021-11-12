@@ -107,6 +107,7 @@
             $controller = new ProductoController();
             $controller->showProductsOfCategory($params[1]);  
             break;
+
         default:
             echo '404 - Página no encontrada';
             break;

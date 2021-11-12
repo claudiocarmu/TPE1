@@ -6,6 +6,7 @@ class ProductoModel {
 
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
+        $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 
     function obtenerCategorias() {
@@ -73,7 +74,6 @@ class ProductoModel {
 
     function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock) {
         try{
-            $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, categoria=?, stock=? WHERE id=?');
             $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $id]);
         }
@@ -85,7 +85,6 @@ class ProductoModel {
 
     function modificarCategoria($id, $descripcion) {
         try{
-            $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $query = $this->db->prepare('UPDATE categorias SET descripcion=? WHERE id=?');
             $query->execute([$descripcion, $id]);
         }
@@ -93,7 +92,16 @@ class ProductoModel {
             $error->getMessage();
             echo $error;
         }
-    }    
+    }   
+    
+    function getAllComments() {
+        $query = $this->db->prepare ('SELECT * FROM comentarios');
+        $query->execute();
+
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $comentarios;
+    }
 
     
 }
