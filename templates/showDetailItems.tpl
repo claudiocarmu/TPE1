@@ -27,7 +27,7 @@
         <th>COMENTARIO</th> <th>PUNTUACION</th>
     </tr>
 
-    <tr>
+    <tr id="vue-comentarios">
         
         
     </tr>    

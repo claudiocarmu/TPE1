@@ -7,10 +7,8 @@
     // tabla de ruteo
     $router->addRoute('comentarios', 'POST', 'ApiController', 'addComment');
     $router->addRoute('comentarios', 'GET', 'ApiController', 'getAllComments');
-    // $router->addRoute('tareas/:ID', 'GET', 'ApiTaskController', 'getOne');
-    // $router->addRoute('tareas/:ID', 'DELETE', 'ApiTaskController', 'remove');
-    // $router->addRoute('tareas', "POST", 'ApiTaskController', 'addTask');
-    // $router->addRoute('tareas/:ID', "PUT", 'ApiTaskController', 'updateTask');
+    $router->addRoute('comentarios/:ID', 'GET', 'ApiController', 'getOneComment');
+    $router->addRoute('comentarios/:ID', 'DELETE', 'ApiController', 'deleteComment');
 
     // rutea
     $resource = $_GET['resource'];

@@ -14,55 +14,54 @@ class ApiController {
 
     public function getAllComments($params = null) {
         $comentarios = $this->model->getAllComments();
-        $this->view->response($comentarios);
+        $this->view->response($comentarios, 200);
     }
 
-    // public function getOne($params = null) {
-    //     $id = $params[':ID'];
-    //     $task = $this->model->getTask($id);
+    public function getOneComment($params = null) {
+        $id = $params[':ID'];
+        $task = $this->model->getOneComment($id);
 
-    //     if ($task)
-    //         $this->view->response($task);
-    //     else
-    //     $this->view->response("Task id=$id not found", 404);
-    // }
+        if ($task)
+            $this->view->response($task);
+        else
+        $this->view->response("Task id=$id not found", 404);
+    }
 
-    // public function remove($params = null) {
-    //     $id = $params[':ID'];
-    //     $task = $this->model->getTask($id);
+    public function deleteComment($params = null) {
+        $id = $params[':ID'];
+        $task = $this->model->getOneComment($id);
         
-    //     if ($task) {
-    //         $this->model->deleteTask($id);
-    //         $this->view->response("Task id=$id remove successfuly");
-    //     } else {
-    //         $this->view->response("Task id=$id not found", 404);
-    //     }
+        if ($task) {
+            $this->model->deleteComment($id);
+            $this->view->response("Comment id=$id remove successfuly");
+        } else {
+            $this->view->response("Comment id=$id not found", 404);
+        }
        
-    // }
+    }
 
-    // /**
-    //  * Leo el body del request
-    //  */
-    // private function getBody() {
-    //     $data = file_get_contents("php://input");
-    //     return json_decode($data);
-    // }
+    /**
+     * Leo el body del request
+     */
+    private function getBody() {
+        $data = file_get_contents("php://input");
+        return json_decode($data);
+    }
 
-    // public function addTask($params = null) {
-    //     $data = $this->getBody();
+    public function addComment($params = null) {
+        $data = $this->getBody();
 
-    //     $titulo = $data->titulo;
-    //     $descripcion = $data->descripcion;
-    //     $prioridad = $data->prioridad;
-
-    //     $id = $this->model->insertTask($titulo, $descripcion, $prioridad);
+        $comentario = $data->comentario;
+        $puntuacion = $data->puntuacion;
+        $producto = $data->id_producto;
+        $id = $this->model->addComment($comentario, $puntuacion, $producto);
         
-    //     $task = $this->model->getTask($id);
-    //     if ($task)
-    //         $this->view->response($task, 200);
-    //     else
-    //         $this->view->response("La tarea no fue creada", 500);
-    // }
+        $comentario = $this->model->getOneComment($id);
+        if ($comentario)
+            $this->view->response($comentario, 200);
+        else
+            $this->view->response("La tarea no fue creada", 500);
+    }
 
     // public function updateTask($params = null) {
     //     $id = $params[':ID'];

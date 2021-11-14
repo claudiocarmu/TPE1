@@ -9,11 +9,17 @@ async function getComments() {
         let response = await fetch (API_URL);
         let comments = await response.json();
 
-        console.log(comments);
     } catch(e) {
         console.log(e);
-    }
-    
+    }  
+} 
+
+function addComment(e) {
+    // e.preventDefault();
+    // let data = new FormData(form);
+    // let comentario = {
+    //     id
+    // }
 }
 
 getComments();

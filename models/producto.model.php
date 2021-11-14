@@ -103,5 +103,22 @@ class ProductoModel {
         return $comentarios;
     }
 
-    
+    function getOneComment($id) {
+        $consulta = "SELECT * FROM comentarios WHERE id=?";
+        $query = $this->db->prepare ($consulta);
+        $query->execute([$id]);
+        $comentario = $query->fetch(PDO::FETCH_OBJ);
+        return $comentario;
+    }
+
+    function deleteComment($id) {
+        $query = $this->db->prepare('DELETE FROM comentarios WHERE id=?');
+        $query->execute([$id]);
+    }
+
+    function addComment($comentario, $puntuacion, $producto) {
+        $query = $this->db->prepare('INSERT INTO comentarios(comentario, puntuacion, id_producto) VALUES (?, ?, ?)');
+        $query->execute([$comentario, $puntuacion, $producto]);
+        return $this->db->lastInsertId();
+    }
 }
