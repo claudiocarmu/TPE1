@@ -2,15 +2,14 @@
 
 class ApiView {
 
-    public function response($data, $code = 200) {
+  // devuelve json  
+  public function response($data, $code = 200) {
         header("Content-Type: application/json");
         header("HTTP/1.1 " . $code . " " . $this->requestStatus($code));
         echo json_encode($data);
     }
 
-    /**
-     * Devuelve el texto asociado a un codigo de respuesta HTTP
-     */
+    // devuelve el texto asociado a un codigo de respuesta HTTP
     private function requestStatus($code){
         $status = array(
           200 => "OK",

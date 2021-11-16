@@ -67,6 +67,17 @@ class ProductoView {
         $this->smarty->assign('error', $error);       
         $this->smarty->display('templates/showErrorDelCategory.tpl');    
     }
+
+    function formAltaComentario($id_producto) {
+        $this->smarty->assign('titulo', 'Alta de comentario');
+        $this->smarty->assign('producto', $id_producto);
+        $this->smarty->display('templates/formAltaComentario.tpl');
+    }
     
+    function showComments($id_producto) {
+        $this->smarty->assign('titulo', 'Comentarios del producto');
+        $this->smarty->assign('producto', $id_producto);
+        $this->smarty->display('templates/showComments.tpl');
+    }
        
 }

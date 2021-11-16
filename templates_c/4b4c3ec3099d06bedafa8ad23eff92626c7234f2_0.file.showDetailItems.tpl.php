@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-13 00:15:34
+/* Smarty version 3.1.39, created on 2021-11-15 23:27:06
   from '/opt/lampp/htdocs/TPE1/templates/showDetailItems.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_618ef596630877_48565493',
+  'unifunc' => 'content_6192debae3f500_93402827',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4b4c3ec3099d06bedafa8ad23eff92626c7234f2' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/showDetailItems.tpl',
-      1 => 1636758160,
+      1 => 1637015218,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_618ef596630877_48565493 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6192debae3f500_93402827 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -49,22 +49,10 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
 </td> 
         <td><?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
 </td>
-        <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='agregarComentario/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
-'>Comentar<a></td>
+        <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='verComentarios/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+'>Ver comentarios<a></td>
     </tr>    
 </table>
-
-<table class='table table-sm' id='tablaComentarios'>
-    <tr>
-        <th>COMENTARIO</th> <th>PUNTUACION</th>
-    </tr>
-
-    <tr>
-        
-        
-    </tr>    
-</table>
-
 
 <?php echo '<script'; ?>
  src = "js/app.js"> <?php echo '</script'; ?>

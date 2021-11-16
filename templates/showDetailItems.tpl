@@ -18,21 +18,9 @@
         <td>{$item->precio}</td> 
         <td>{$item->stock}</td> 
         <td>{$categoria->descripcion}</td>
-        <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='agregarComentario/{$item->id}'>Comentar<a></td>
+        <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='verComentarios/{$item->id}'>Ver comentarios<a></td>
     </tr>    
 </table>
-
-<table class='table table-sm' id='tablaComentarios'>
-    <tr>
-        <th>COMENTARIO</th> <th>PUNTUACION</th>
-    </tr>
-
-    <tr id="vue-comentarios">
-        
-        
-    </tr>    
-</table>
-
 
 <script src = "js/app.js"> </script>
 {* Incluímos el footer *}
