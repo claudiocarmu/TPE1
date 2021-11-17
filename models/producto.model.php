@@ -121,4 +121,12 @@ class ProductoModel {
         $query->execute([$comentario, $puntuacion, $producto]);
         return $this->db->lastInsertId();
     }
+
+    function obtenerComentarios($id_prodcuto) {
+        $consulta = "SELECT * FROM comentarios WHERE id_producto=?";
+        $query = $this->db->prepare ($consulta);
+        $query->execute([$id_prodcuto]);
+        $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
+        return $comentarios;
+    }
 }

@@ -26,10 +26,6 @@ class ProductoController {
         $categorias = $this->model->obtenerCategorias();
         $this->view->showCategories($categorias);
     }
-
-    public function showComments($id_producto) {
-        $this->view->showComments($id_producto);
-    }
   
     // Muestra el listado de productos con los botones
     function showProducts() {
@@ -168,6 +164,9 @@ class ProductoController {
         }
     }
 
-    
+    public function showComments($id_producto) {
+        $productComments = $this->model->obtenerComentarios($id_producto); 
+        $this->view->showComments($productComments);
+    }
 
 }
