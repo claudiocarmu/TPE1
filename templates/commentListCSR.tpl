@@ -1,5 +1,5 @@
 {include file='templates/header.tpl'}
-<div class="row mt-4">
+{* <div class="row mt-4">
     <div class="col-md-4">
         {include file='templates/formAltaComentarios.tpl'}
     </div>
@@ -10,7 +10,7 @@
 </div>
 
 <script src="js/app.js"></script>
-{include file='templates/footer.tpl'}
+{include file='templates/footer.tpl'} *}
 
 {* 
 <table class='table table-sm' id='tablaComentarios'>

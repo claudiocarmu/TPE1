@@ -11,13 +11,9 @@
     </tr>
 
     <tr>
-        <td>{$item->id_producto}</td>
-        <td>{$item->id}</td> 
-        <td>{$item->comentario}</td> 
-        <td>{$item->puntuacion}</td> 
-       
-        {* <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='verComentarios/{$item->id}'>Ver comentarios<a></td> *}
+        {* Hueco para listado CSR *}
     </tr>    
+    
 </table>
 
 <script src = "js/app.js"> </script>
