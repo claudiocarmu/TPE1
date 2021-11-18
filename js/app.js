@@ -6,8 +6,6 @@ async function getComments() {
     try {
         let response = await fetch (API_URL);
         let comments = await response.json();
-
-        console.log(comments);
         render(comments);
 
     } catch(e) {
@@ -23,12 +21,10 @@ function render(comments) {
     let list = document.querySelector('#listaComentarios');
     list.innerHTML = "";
     for (const comment of comments) {
-        let html = `<li>
-                        <td>${comment.id_producto}</td>
-                        <td>${comment.id}</td> 
+        let html = `<tr>
                         <td>${comment.comentario}</td> 
                         <td>${comment.puntuacion}</td> 
-                    </li>`;
+                    </tr>`;
         
         list.innerHTML += html ;
     }

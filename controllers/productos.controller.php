@@ -165,8 +165,9 @@ class ProductoController {
     }
 
     public function showComments($id_producto) {
+        $producto = $this->model->obtenerProducto($id_producto);
         $productComments = $this->model->obtenerComentarios($id_producto); 
-        $this->view->showComments($productComments);
+        $this->view->showComments($productComments,$producto);
     }
 
 }

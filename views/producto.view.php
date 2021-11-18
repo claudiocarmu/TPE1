@@ -74,8 +74,9 @@ class ProductoView {
         $this->smarty->display('templates/formAltaComentario.tpl');
     }
     
-    function showComments($productComments) {
+    function showComments($productComments,$producto) {
         $this->smarty->assign('titulo', 'Comentarios del producto');
+        $this->smarty->assign('producto', $producto->descripcion);
         $this->smarty->assign('comentarios', $productComments);
         $this->smarty->display('templates/showComments.tpl');
     }
