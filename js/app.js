@@ -7,14 +7,24 @@ let app = new Vue({
     data: {
         titulo: "Comentarios",
         comments: [],
+    },
+
+    methods: {
+        addComment: function (e) {
+            e.preventDefault();
+    
+        postComment();
+        }
     }
 });
 
-// let form = document.querySelector("formAltaComentario");
-// form.addEventListener('submit', addComment);
+function getProductID() {
+    let id_producto = document.getElementById('listCommentsVue').getAttribute('data-idProducto');
+    return id_producto;
+}
 
 async function getComments() {
-    let id_producto = document.getElementById('listCommentsVue').getAttribute('data-idProducto');
+    let id_producto = getProductID();
     try {
         
         let response = await fetch(API_URL + 'producto/' + id_producto);
@@ -27,17 +37,16 @@ async function getComments() {
     }
 }
 
-async function addComment(e) {
-    e.preventDefault();
-    let data = new FormData(form);
+async function postComment() {
+    
+    var data = new FormData(formAddComment);
     let comment = {
         comentario: data.get('comentario'),
         puntuacion: data.get('puntuacion'),
-        // id_producto: data.get('idProducto'),
+        id_producto: getProductID(),
     }
 
-    console.log(comment);
-    return;
+    console.log (comment);
 
     try {
         let response = await fetch(API_URL, {
@@ -50,26 +59,12 @@ async function addComment(e) {
 
         if (response.ok) {
             let comment = await response.json();
-            app.comment.push(comment);
+            app.comments.push(comment);
         }
 
     } catch(e) {
         console.log(e)
     }
 }
-
-// function render(comments) {
-//     let list = document.querySelector('#listaComentarios');
-//     list.innerHTML = "";
-//     for (const comment of comments) {
-//             let html = `<tr>
-//                             <td>${comment.comentario}</td> 
-//                             <td>${comment.puntuacion}</td> 
-//                         </tr>`;
-            
-//             list.innerHTML += html ;
-//     }
-// }
-
 
 getComments();

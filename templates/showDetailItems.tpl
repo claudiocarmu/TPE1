@@ -8,7 +8,7 @@
 <ul class="list-group list-unstyled mt-5">
 <table class='table table-sm'>
     <tr>
-        <th>ID</th> <th>SKU</th> <th>DESCRIPCION</th> <th>PRECIO</th> <th>STOCK</th> <th>CATEGORIA</th> <th>COMENTARIOS</th>
+        <th>ID</th> <th>SKU</th> <th>DESCRIPCION</th> <th>PRECIO</th> <th>STOCK</th> <th>CATEGORIA</th>
     </tr>
 
     <tr>
@@ -18,8 +18,7 @@
         <td>{$item->precio}</td> 
         <td>{$item->stock}</td> 
         <td>{$categoria->descripcion}</td>
-        {* <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='verComentarios/{$item->id}'>Ver<a></td>
-        <td class='d-inline p-2'><a class='btn btn-success btn-sm' href='agregarComentarios/{$item->id}'>Agregar<a></td> *}
+
     </tr>    
 
 </table>
