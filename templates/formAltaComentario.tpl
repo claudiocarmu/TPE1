@@ -1,10 +1,11 @@
 <!-- formulario de alta de comentario -->
-<form action="insertar" method="POST" class="my-4">
+
+<form method="POST" class="my-4" id="formAltaComentario">
     <div class="row">
         <div class="">
-            Comentario de producto: {$producto}
+            {* Comentario de producto: {$producto} *}
         </div>
-
+    
         <div class="col-9">
             <div class="form-group">
                 <label>Comentario</label>
@@ -12,9 +13,16 @@
             </div>
         </div>
 
+        {* <div class="col-9">
+            <div class="form-group">
+                <label>Id_Producto</label>
+                <input name="id_producto" type="text">
+            </div>
+        </div> *}
+
         <div class="col-3">
             <div class="form-group">
-                <label>Prioridad</label>
+                <label>Puntuación</label>
                 <select name="puntuacion" class="form-control">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -26,10 +34,6 @@
         </div>
     </div>
 
-    {* <div class="form-group">
-        <label>Descripcion</label>
-        <textarea name="descripcion" class="form-control" rows="3"></textarea>
-    </div> *}
-
     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
 </form>
+

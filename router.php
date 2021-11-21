@@ -107,10 +107,14 @@
             $controller = new ProductoController();
             $controller->showProductsOfCategory($params[1]);  
             break;
-        case 'verComentarios':
-            $controller = new ProductoController();
-            $controller->showComments($params[1]);  
-            break;
+        // case 'verComentarios':
+        //     $controller = new ProductoController();
+        //     $controller->showComments($params[1]);  // En $params[1] mando id del producto 
+        //     break;
+        // case 'agregarComentarios':
+        //     $controller = new ProductoController();
+        //     $controller->addComment($params[1]);  // En $params[1] mando id del producto 
+        //     break;
         default:
             echo '404 - Página no encontrada';
             break;

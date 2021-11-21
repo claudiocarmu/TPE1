@@ -12,27 +12,38 @@ class ApiController {
         $this->view = new ApiView();
     }
 
-    public function getAllComments($params = null) {
-        $comentarios = $this->model->getAllComments();
+    public function getComments($params = null) {  //se modificó nombre función y FUNCIONAAAAA
+        $id_producto = $params[':ID'];
+        $comentarios = $this->model->getAllComments($id_producto);
         $this->view->response($comentarios, 200);
     }
 
     public function getOneComment($params = null) {
         $id = $params[':ID'];
-        $task = $this->model->getOneComment($id);
+        $comment = $this->model->getOneComment($id);
 
-        if ($task)
-            $this->view->response($task);
+        if ($comment)
+            $this->view->response($comment);
         else
-        $this->view->response("Task id=$id not found", 404);
+        $this->view->response("Comment id=$id not found", 404);
     }
+
+    // public function getCommentProduct($params = null) {
+    //     $id_producto = $params[':IDPRODUCTO'];
+    //     $comment = $this->model->getCommentProduct($id_producto);
+
+    //     if ($comment)
+    //         $this->view->response($comment);
+    //     else
+    //     $this->view->response("Producto id=$id_producto not found", 404);
+    // }
 
     public function deleteComment($params = null) {
         $id = $params[':ID'];
-        $task = $this->model->getOneComment($id);
+        $comment = $this->model->getOneComment($id);
         
-        if ($task) {
-            $this->model->deleteComment($id);
+        if ($comment) {
+            $this->model->deleteOneComment($id);
             $this->view->response("Comment id=$id remove successfuly");
         } else {
             $this->view->response("Comment id=$id not found", 404);

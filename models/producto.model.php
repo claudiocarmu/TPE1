@@ -94,12 +94,12 @@ class ProductoModel {
         }
     }   
     
-    function getAllComments() {
-        $query = $this->db->prepare ('SELECT * FROM comentarios');
-        $query->execute();
+    //Funciones comentarios:
 
+    function getAllComments($id_producto) {
+        $query = $this->db->prepare ('SELECT * FROM comentarios WHERE id_producto=?');
+        $query->execute([$id_producto]);
         $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
-
         return $comentarios;
     }
 
@@ -111,7 +111,7 @@ class ProductoModel {
         return $comentario;
     }
 
-    function deleteComment($id) {
+    function deleteOneComment($id) {
         $query = $this->db->prepare('DELETE FROM comentarios WHERE id=?');
         $query->execute([$id]);
     }
@@ -122,11 +122,21 @@ class ProductoModel {
         return $this->db->lastInsertId();
     }
 
-    function obtenerComentarios($id_prodcuto) {
-        $consulta = "SELECT * FROM comentarios WHERE id_producto=?";
-        $query = $this->db->prepare ($consulta);
-        $query->execute([$id_prodcuto]);
-        $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
-        return $comentarios;
-    }
+    // function obtenerComentarios($id_prodcuto) {
+    //     $consulta = "SELECT * FROM comentarios WHERE id_producto=?";
+    //     $query = $this->db->prepare ($consulta);
+    //     $query->execute([$id_prodcuto]);
+    //     $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
+    //     return $comentarios;
+        
+    // }
+
+    // function getCommentProduct($id_producto) {
+    //     $consulta = "SELECT * FROM comentarios WHERE id_producto=?";
+    //     $query = $this->db->prepare ($consulta);
+    //     $query->execute([$id_producto]);
+    //     $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
+    //     return $comentarios;
+    // }
+    
 }

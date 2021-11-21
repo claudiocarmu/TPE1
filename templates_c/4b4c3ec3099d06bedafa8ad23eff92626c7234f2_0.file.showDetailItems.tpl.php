@@ -1,28 +1,29 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-18 00:50:29
+/* Smarty version 3.1.39, created on 2021-11-21 01:32:42
   from '/opt/lampp/htdocs/TPE1/templates/showDetailItems.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61959545c8d580_41759747',
+  'unifunc' => 'content_619993aa8564c8_62685719',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4b4c3ec3099d06bedafa8ad23eff92626c7234f2' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/showDetailItems.tpl',
-      1 => 1637188534,
+      1 => 1637454759,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:templates/header.tpl' => 1,
+    'file:vue/commentsListVue.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61959545c8d580_41759747 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619993aa8564c8_62685719 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -33,7 +34,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
 <ul class="list-group list-unstyled mt-5">
 <table class='table table-sm'>
     <tr>
-        <th>ID</th> <th>SKU</th> <th>DESCRIPCION</th> <th>PRECIO</th> <th>STOCK</th> <th>CATEGORIA</th> <th>COMENTAR</th>
+        <th>ID</th> <th>SKU</th> <th>DESCRIPCION</th> <th>PRECIO</th> <th>STOCK</th> <th>CATEGORIA</th> <th>COMENTARIOS</th>
     </tr>
 
     <tr>
@@ -49,10 +50,16 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
 </td> 
         <td><?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
 </td>
-        <td class='d-inline p-2'><a class='btn btn-primary btn-sm' href='verComentarios/<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
-'>Ver comentarios<a></td>
-    </tr>    
+            </tr>    
+
 </table>
+
+<div class="col-md-8" id="listCommentsVue" data-idProducto="<?php echo $_smarty_tpl->tpl_vars['item']->value->id;?>
+">
+        <!-- hueco para CSR -->
+        <?php $_smarty_tpl->_subTemplateRender("file:vue/commentsListVue.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+</div>
 
 <?php echo '<script'; ?>
  src = "js/app.js"> <?php echo '</script'; ?>
