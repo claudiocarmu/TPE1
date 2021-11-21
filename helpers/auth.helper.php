@@ -25,6 +25,18 @@ class AuthHelper {
         }
     }
 
+    public function checkAdminIn() {
+        if (empty($_SESSION['USER_ID'])) {
+            header("Location: " . BASE_URL . 'login');
+            die();
+        } else {
+            if ($_SESSION['USER_ROL'] == 'A') {
+                header("Location: " . BASE_URL . 'login');
+                die();
+            }
+        }
+    }
+
     function logout() {
         session_destroy();
         header("Location: " . BASE_URL . 'login');

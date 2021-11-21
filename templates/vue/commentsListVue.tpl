@@ -23,20 +23,23 @@
             </div>
         </div>
         <br>
-        <input type="submit" value="Agregar comentario">
+        <input type="submit" class="btn btn-success btn-sm" value="Agregar comentario">
         <br>
         <br>
     </form>
     
-    <ul id="comment-list" class="list-group">
-        <li v-for="comentario in comments" class="list-group-item d-flex">
-            {{comentario.comentario}} | {{comentario.puntuacion}}
-            <div class="acciones ms-auto">
-                <a class="btn btn-sm btn-danger" v-bind:comentario-id="comentario.id">Borrar</a>
-            </div>
-        </li> 
 
-        
-    </ul>
+
+    <form @submit='delComment' method='POST'>
+        <ul id="comment-list" class="list-group">
+            <li v-for="comentario in comments" class="list-group-item d-flex">
+                {{comentario.comentario}} | {{comentario.puntuacion}} | {{comentario.id}}
+                <div class="acciones ms-auto">
+                    <button class="btn btn-sm btn-danger" v-on:click="delComment(comentario.id)">Borrar</button>
+                </div>
+            </li>             
+        </ul>
+    </form>
+
 </div>
 {/literal}

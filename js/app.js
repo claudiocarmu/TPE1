@@ -14,9 +14,14 @@ let app = new Vue({
             e.preventDefault();
     
         postComment();
+        },
+        
+        delComment: function (id) {
+            deleteComment(id);
         }
     }
 });
+
 
 function getProductID() {
     let id_producto = document.getElementById('listCommentsVue').getAttribute('data-idProducto');
@@ -65,6 +70,23 @@ async function postComment() {
     } catch(e) {
         console.log(e)
     }
+}
+
+async function deleteComment(id) {
+
+        
+
+        try {
+            let response = await fetch(API_URL + id , {
+                "method": "DELETE"
+            });
+            if (response.ok) {
+                console.log("Comentario eliminado con exito");
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
 }
 
 getComments();

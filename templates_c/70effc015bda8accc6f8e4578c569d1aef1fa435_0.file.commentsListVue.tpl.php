@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-21 22:02:47
+/* Smarty version 3.1.39, created on 2021-11-21 23:16:41
   from '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619ab3f75c3179_57204804',
+  'unifunc' => 'content_619ac549db9001_06624450',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '70effc015bda8accc6f8e4578c569d1aef1fa435' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl',
-      1 => 1637528547,
+      1 => 1637532985,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619ab3f75c3179_57204804 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619ac549db9001_06624450 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="app">
     <h1>{{ titulo }} </h1>
@@ -46,21 +46,24 @@ function content_619ab3f75c3179_57204804 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         </div>
         <br>
-        <input type="submit" value="Agregar comentario">
+        <input type="submit" class="btn btn-success btn-sm" value="Agregar comentario">
         <br>
         <br>
     </form>
     
-    <ul id="comment-list" class="list-group">
-        <li v-for="comentario in comments" class="list-group-item d-flex">
-            {{comentario.comentario}} | {{comentario.puntuacion}}
-            <div class="acciones ms-auto">
-                <a class="btn btn-sm btn-danger" v-bind:comentario-id="comentario.id">Borrar</a>
-            </div>
-        </li> 
 
-        
-    </ul>
+
+    <form @submit='delComment' method='POST'>
+        <ul id="comment-list" class="list-group">
+            <li v-for="comentario in comments" class="list-group-item d-flex">
+                {{comentario.comentario}} | {{comentario.puntuacion}} | {{comentario.id}}
+                <div class="acciones ms-auto">
+                    <button class="btn btn-sm btn-danger" v-on:click="delComment(comentario.id)">Borrar</button>
+                </div>
+            </li>             
+        </ul>
+    </form>
+
 </div>
 <?php }
 }
