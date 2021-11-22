@@ -4,19 +4,13 @@ class ProductoModel {
 
     private $db;
 
+    /// Constructor
     public function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
         $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 
-    function obtenerCategorias() {
-        $consulta = "SELECT * FROM categorias";
-        $query = $this->db->prepare($consulta);
-        $query->execute();
-        $categorias = $query->fetchAll(PDO::FETCH_OBJ); 
-        return $categorias;
-    }
-    
+    /// Obtiene todos los productos
     function obtenerProductos() {
         $consulta = "SELECT productos.*, categorias.descripcion as categoria FROM productos JOIN categorias ON productos.categoria = categorias.id";
         $query = $this->db->prepare($consulta);
@@ -25,6 +19,7 @@ class ProductoModel {
         return $productos;
     }
 
+    /// Obtiene los productos por categoria
     function obtenerProductosOfCategory($idCat) {
         $consulta = "SELECT productos.*, categorias.descripcion as categoria FROM productos JOIN categorias ON productos.categoria = categorias.id WHERE categoria=?";
         $query = $this->db->prepare($consulta);
@@ -33,14 +28,7 @@ class ProductoModel {
         return $productos;
     }
     
-    function obtenerCategoria($id) {
-        $consulta = "SELECT * FROM categorias WHERE id=?";
-        $query = $this->db->prepare($consulta);
-        $query->execute([$id]);
-        $categoria = $query->fetch(PDO::FETCH_OBJ);
-        return $categoria;
-    }
-   
+    /// Obtiene un producto
     function obtenerProducto($id) {
         $consulta = "SELECT * FROM productos WHERE id=?";
         $query = $this->db->prepare($consulta);
@@ -49,29 +37,20 @@ class ProductoModel {
         return $producto;
     }
 
-
+    /// Agrega un producto
     function agregarProducto($sku, $descripcion, $precio, $categoria, $stock) {
         $query = $this->db->prepare('INSERT INTO productos(sku, descripcion, precio, categoria, stock) VALUES (?, ?, ?, ?, ?)');
         $query->execute([$sku, $descripcion, $precio, $categoria, $stock]);
         return $this->db->lastInsertId();
     }
     
-    function agregarCategoria($descripcion) {
-        $query = $this->db->prepare('INSERT INTO categorias(descripcion) VALUES (?)');
-        $query->execute([$descripcion]);
-        return $this->db->lastInsertId();
-    }
-
+    /// Elimina un producto
     function borrarProducto($id) {    
         $query = $this->db->prepare('DELETE FROM productos WHERE id=?');
         $query->execute([$id]);
     }
 
-    function borrarCategoria($id) {    
-        $query = $this->db->prepare('DELETE FROM categorias WHERE id=?');
-        $query->execute([$id]);
-    }
-
+    /// Modifica un producto
     function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock) {
         try{
             $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, categoria=?, stock=? WHERE id=?');
@@ -83,44 +62,6 @@ class ProductoModel {
         }
     }    
 
-    function modificarCategoria($id, $descripcion) {
-        try{
-            $query = $this->db->prepare('UPDATE categorias SET descripcion=? WHERE id=?');
-            $query->execute([$descripcion, $id]);
-        }
-        catch (PDOException $error) {
-            $error->getMessage();
-            echo $error;
-        }
-    }   
-    
-    //Funciones comentarios:
-
-    function getAllComments($id_producto) {
-        $query = $this->db->prepare ('SELECT * FROM comentarios WHERE id_producto=?');
-        $query->execute([$id_producto]);
-        $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
-        return $comentarios;
-    }
-
-    function getOneComment($id) {
-        $consulta = "SELECT * FROM comentarios WHERE id=?";
-        $query = $this->db->prepare ($consulta);
-        $query->execute([$id]);
-        $comentario = $query->fetch(PDO::FETCH_OBJ);
-        return $comentario;
-    }
-
-    function deleteOneComment($id) {
-        $query = $this->db->prepare('DELETE FROM comentarios WHERE id=?');
-        $query->execute([$id]);
-    }
-
-    function addComment($comentario, $puntuacion, $producto) {
-        $query = $this->db->prepare('INSERT INTO comentarios(comentario, puntuacion, id_producto) VALUES (?, ?, ?)');
-        $query->execute([$comentario, $puntuacion, $producto]);
-        return $this->db->lastInsertId();
-    }
 
      
 }

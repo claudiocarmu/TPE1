@@ -1,18 +1,21 @@
 <?php
 
 require_once('models/producto.model.php');
+require_once('models/categoria.model.php');
 require_once('views/producto.view.php');
 require_once('helpers/auth.helper.php');
 
 class ProductoController {
 
-    private $model;
+    private $productoModel;
+    private $categoriaModel;
     private $view;
     private $authHelper;
 
     /// Constructor
     public function __construct() {
-        $this->model = new ProductoModel();
+        $this->productoModel = new ProductoModel();
+        $this->categoriaModel = new CategoriaModel();
         $this->view = new ProductoView();
         $this->authHelper = new AuthHelper();
     }
@@ -26,20 +29,20 @@ class ProductoController {
     
     /// Muestra el listado de productos con los botones
     function showProducts() {
-        $productos = $this->model->obtenerProductos();
+        $productos = $this->productoModel->obtenerProductos();
         $this->view->showProducts($productos);
     }
 
     /// Muestra los productos por categoria
     function showProductsOfCategory($idCat) {
-        $productos = $this->model->obtenerProductosOfCategory($idCat); ////////
+        $productos = $this->productoModel->obtenerProductosOfCategory($idCat); ////////
         $this->view->showProducts($productos);
     }
 
     /// Muestra el detalle del producto
     function viewDetailProduct($id) {
-        $producto = $this->model->obtenerProducto($id);
-        $categoria = $this->model->obtenerCategoria($producto->categoria);
+        $producto = $this->productoModel->obtenerProducto($id);
+        $categoria = $this->categoriaModel->obtenerCategoria($producto->categoria);
         $this->view->showDetailProduct($producto, $categoria);
     }
 
@@ -53,11 +56,11 @@ class ProductoController {
             $precio = $_REQUEST['precio'];
             $categoria = $_REQUEST['categoria'];
             $stock = $_REQUEST['stock'];
-            $this->model->agregarProducto($sku, $descripcion, $precio, $categoria, $stock);
+            $this->productoModel->agregarProducto($sku, $descripcion, $precio, $categoria, $stock);
             header("Location: " . BASE_URL); 
         }
         else {
-            $categorias = $this->model->obtenerCategorias();
+            $categorias = $this->categoriaModel->obtenerCategorias();
             $this->view->formAltaProducto($categorias);            
         }
     }
@@ -65,15 +68,15 @@ class ProductoController {
     /// Elimina un producto
     function delProducto($id) {
         $this->authHelper->checkLoggedIn();
-        $this->model->borrarProducto($id);
+        $this->productoModel->borrarProducto($id);
         header("Location: " . BASE_URL. "listProducts");
     }
 
     /// Edita el formulario para modificar un producto
     function formEditProduct($id) {
         $this->authHelper->checkLoggedIn();
-        $producto = $this->model->obtenerProducto($id);
-        $categorias = $this->model->obtenerCategorias();
+        $producto = $this->productoModel->obtenerProducto($id);
+        $categorias = $this->categoriaModel->obtenerCategorias();
         $this->view->showModifyProduct($producto, $categorias);
     }
 
@@ -91,7 +94,7 @@ class ProductoController {
            $newPrecio = $_GET['precio'];
            $newCategoria = $_GET['categoria'];
            $newStock = $_GET['stock'];
-           $this->model->modificarProducto($id, $newSku, $newDescripcion, $newPrecio, $newCategoria, $newStock);
+           $this->productoModel->modificarProducto($id, $newSku, $newDescripcion, $newPrecio, $newCategoria, $newStock);
            header("Location: " . BASE_URL. "listProducts"); 
         }
     }
@@ -101,13 +104,13 @@ class ProductoController {
     
     /// Muestra el listado de categorías con los botones
     public function showCategories() {
-        $categorias = $this->model->obtenerCategorias();
+        $categorias = $this->categoriaModel->obtenerCategorias();
         $this->view->showCategories($categorias);
     }
 
     /// Muestra el detalle de la categoria
     function viewDetailCategory($id) {
-        $categoria = $this->model->obtenerCategoria($id);
+        $categoria = $this->categoriaModel->obtenerCategoria($id);
         $this->view->showDetailCategory($categoria);
     }
 
@@ -118,7 +121,7 @@ class ProductoController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             $descripcion = $_REQUEST['descripcion'];
-            $this->model->agregarCategoria($descripcion);
+            $this->categoriaModel->agregarCategoria($descripcion);
             header("Location: " . BASE_URL); 
         } 
         else {
@@ -129,8 +132,8 @@ class ProductoController {
     /// Elimina una categoria
     function delCategoria($id) {
         $this->authHelper->checkLoggedIn();
-        $productos = $this->model->obtenerProductos();     
-        $categoria = $this->model->obtenerCategoria($id);  
+        $productos = $this->productoModel->obtenerProductos();     
+        $categoria = $this->categoriaModel->obtenerCategoria($id);  
         $existeCategoria = FALSE;
         $cantProductos = count($productos);
         $indice = 0;
@@ -141,7 +144,7 @@ class ProductoController {
                 $indice++;
         }
         if ($existeCategoria == FALSE) {
-            $this->model->borrarCategoria($id);      
+            $this->categoriaModel->borrarCategoria($id);      
             header("Location: " . BASE_URL. "listCategories");
         }
         else {
@@ -152,7 +155,7 @@ class ProductoController {
     /// Edita el formulario para modificar una categoria
     function formEditCategory($id) {
         $this->authHelper->checkLoggedIn();
-        $categoria = $this->model->obtenerCategoria($id);
+        $categoria = $this->categoriaModel->obtenerCategoria($id);
         $this->view->showModifyCategory($categoria);
     }
 
@@ -162,7 +165,7 @@ class ProductoController {
         
         if ((isset($_GET['descripcion']) || !empty($_GET['descripcion']))) {
             $newDescripcion = $_GET['descripcion'];
-            $this->model->modificarCategoria($id, $newDescripcion);
+            $this->categoriaModel->modificarCategoria($id, $newDescripcion);
             header("Location: " . BASE_URL. "listCategories"); 
         }
     }

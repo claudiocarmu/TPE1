@@ -1,15 +1,15 @@
 <?php
-require_once 'models/producto.model.php';
+require_once 'models/comentario.model.php';
 require_once 'api/api.view.php';
 
 class ApiController {
-    private $model;
+    private $comentarioModel;
     private $view;
     private $data;
 
     /// Constructor
     function __construct() {
-        $this->model = new ProductoModel();
+        $this->comentarioModel = new ComentarioModel();
         $this->view = new ApiView();
     }
 
@@ -22,14 +22,14 @@ class ApiController {
     /// Obtiene todos los comentarios
     public function getComments($params = null) {  
         $id_producto = $params[':ID'];
-        $comentarios = $this->model->getAllComments($id_producto);
+        $comentarios = $this->comentarioModel->getAllComments($id_producto);
         $this->view->response($comentarios, 200);
     }
 
     /// Obtiene un comentario
     public function getOneComment($params = null) {
         $id = $params[':ID'];
-        $comment = $this->model->getOneComment($id);
+        $comment = $this->comentarioModel->getOneComment($id);
         if ($comment)
             $this->view->response($comment);
         else
@@ -43,9 +43,9 @@ class ApiController {
         $comentario = $data->comentario;
         $puntuacion = $data->puntuacion;
         $producto = $data->id_producto;
-        $id = $this->model->addComment($comentario, $puntuacion, $producto);
+        $id = $this->comentarioModel->addComment($comentario, $puntuacion, $producto);
         
-        $comentario = $this->model->getOneComment($id);
+        $comentario = $this->comentarioModel->getOneComment($id);
         if ($comentario)
             $this->view->response($comentario, 200);
         else
@@ -55,10 +55,10 @@ class ApiController {
     /// Elimina un comentario
     public function deleteComment($params = null) {
         $id = $params[':ID'];
-        $comment = $this->model->getOneComment($id);
+        $comment = $this->comentarioModel->getOneComment($id);
         
         if ($comment) {
-            $this->model->deleteOneComment($id);
+            $this->comentarioModel->deleteOneComment($id);
             $this->view->response("Comment id=$id remove successfuly");
         } else {
             $this->view->response("Comment id=$id not found", 404);
