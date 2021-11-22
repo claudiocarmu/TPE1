@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-18 02:11:17
+/* Smarty version 3.1.39, created on 2021-11-22 01:41:09
   from 'C:\xampp\htdocs\TPE1\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6195a8355b9290_45853131',
+  'unifunc' => 'content_619ae725e1f5d9_03072654',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f039da7d3761ba639e2f9a92be28aba97ba3eac1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE1\\templates\\header.tpl',
-      1 => 1637197466,
+      1 => 1637536841,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6195a8355b9290_45853131 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619ae725e1f5d9_03072654 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +34,11 @@ function content_6195a8355b9290_45853131 (Smarty_Internal_Template $_smarty_tpl)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    </head>
+    <!-- development version, includes helpful console warnings -->
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"><?php echo '</script'; ?>
+>
+</head>
 
 <body>
     <header>

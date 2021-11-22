@@ -8,22 +8,24 @@ class AuthController {
     private $view;
     private $authHelper;
 
+    /// Constructor
     public function __construct() {
         $this->model = new UserModel();
         $this->view = new AuthView();
         $this->authHelper = new AuthHelper();
     }
 
-    // Muestra el formulario para loguearse
+    /// Muestra el formulario para loguearse
     public function showLogin() {
         $this->view->showFormLogin();
     }
 
+    /// Muestra el formulario de registro
     public function showRegister() {
         $this->view->showFormRegister();
     }
 
-    // Obtiene los datos del login y los valida
+    /// Obtiene los datos del login y los valida
     public function login() {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $email = $_POST['email'];
@@ -42,7 +44,7 @@ class AuthController {
         }
     }
 
-    // Registro nuevo Usuario (No administrador)
+    /// Registro nuevo Usuario (No administrador)
     public function register() {
         if (!empty($_POST['email']) && !empty($_POST['password1']) && !empty($_POST['password2'])) {
             
@@ -65,22 +67,25 @@ class AuthController {
         }     
     }
 
+    /// Muestra todos los usuarios
     public function showUsers() {
         $users = $this->model->obtenerUsuarios();
         $this->view->showUsers($users);
-        
     }
 
+    /// Elimina un usuario
     public function delUser($id) {
         $this->model->borrarUsuario($id);
         header("Location: " . BASE_URL);
     }
 
+    /// Muestra el usuario editado
     public function editUser($id) {
         $user = $this->model->obtenerUsuario($id);
         $this->view->editUser($user);
     }
 
+    /// Modifica el usuario
     public function modifyUser($id) {     
         if (!empty($_GET['rol']) && (($_GET['rol']=='A') || ($_GET['rol']=='N'))) {
             $newRol = $_GET['rol'];
@@ -89,7 +94,7 @@ class AuthController {
         header("Location: " . BASE_URL. "usuarios");
     }
 
-    // Cierra la sesion
+    /// Cierra la sesion
     public function logout() {
         $this->authHelper->logout();
     }

@@ -1,6 +1,6 @@
 {literal}
 <div id="app">
-    <h1>{{ titulo }} </h1>
+    <h2>{{ titulo }} </h2>
 
     <form id='formAddComment' @submit='addComment' method='POST' >
         <div class="col-9">
@@ -31,9 +31,11 @@
 
 
     <form @submit='delComment' method='POST'>
+   
         <ul id="comment-list" class="list-group">
+            <h5>Comentario | Puntuacion</h5>     
             <li v-for="comentario in comments" class="list-group-item d-flex">
-                {{comentario.comentario}} | {{comentario.puntuacion}} | {{comentario.id}}
+                {{comentario.comentario}} | {{comentario.puntuacion}}
                 <div class="acciones ms-auto">
                     <button class="btn btn-sm btn-danger" v-on:click="delComment(comentario.id)">Borrar</button>
                 </div>

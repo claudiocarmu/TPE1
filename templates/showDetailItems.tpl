@@ -3,7 +3,7 @@
 
 {* Encabezado de la lista *}
 <h1 class="title"> {$titulo} </h1>
-<ul class="list-group list-unstyled mt-5">
+{* <ul class="list-group list-unstyled mt-5"> *}
 
 <ul class="list-group list-unstyled mt-5">
 <table class='table table-sm'>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-21 23:16:41
-  from '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl' */
+/* Smarty version 3.1.39, created on 2021-11-22 01:41:11
+  from 'C:\xampp\htdocs\TPE1\templates\vue\commentsListVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619ac549db9001_06624450',
+  'unifunc' => 'content_619ae727515218_04489621',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '70effc015bda8accc6f8e4578c569d1aef1fa435' => 
+    'c6283293f86a6d151a8c721e24d8899e8726b58d' => 
     array (
-      0 => '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl',
-      1 => 1637532985,
+      0 => 'C:\\xampp\\htdocs\\TPE1\\templates\\vue\\commentsListVue.tpl',
+      1 => 1637539524,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619ac549db9001_06624450 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619ae727515218_04489621 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="app">
-    <h1>{{ titulo }} </h1>
+    <h2>{{ titulo }} </h2>
 
     <form id='formAddComment' @submit='addComment' method='POST' >
         <div class="col-9">
@@ -54,9 +54,11 @@ function content_619ac549db9001_06624450 (Smarty_Internal_Template $_smarty_tpl)
 
 
     <form @submit='delComment' method='POST'>
+   
         <ul id="comment-list" class="list-group">
+            <h5>Comentario | Puntuacion</h5>     
             <li v-for="comentario in comments" class="list-group-item d-flex">
-                {{comentario.comentario}} | {{comentario.puntuacion}} | {{comentario.id}}
+                {{comentario.comentario}} | {{comentario.puntuacion}}
                 <div class="acciones ms-auto">
                     <button class="btn btn-sm btn-danger" v-on:click="delComment(comentario.id)">Borrar</button>
                 </div>

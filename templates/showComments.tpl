@@ -1,9 +1,8 @@
 {include file = 'templates/header.tpl'}
 
 {* Encabezado de la lista *}
-<h1 class="title"> {$titulo} </h1>
-<h3> {$producto} </h3>
-<ul class="list-group list-unstyled mt-5">
+<h3 {$titulo} </h3>
+{* <h3> {$producto} </h3> *}
 
 <ul class="list-group list-unstyled mt-5">
 

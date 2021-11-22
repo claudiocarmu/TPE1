@@ -10,31 +10,29 @@ let app = new Vue({
     },
 
     methods: {
-        addComment: function (e) {
-            e.preventDefault();
-    
+        /// Agrega un comentario
+        addComment: function () {
         postComment();
         },
-        
+        /// Elimina un comentario
         delComment: function (id) {
-            deleteComment(id);
+        deleteComment(id);
         }
     }
 });
 
-
+/// Obtiene el ID del producto
 function getProductID() {
     let id_producto = document.getElementById('listCommentsVue').getAttribute('data-idProducto');
     return id_producto;
 }
 
+/// Obtiene todos los comentarios
 async function getComments() {
     let id_producto = getProductID();
     try {
-        
         let response = await fetch(API_URL + 'producto/' + id_producto);
         let nComments = await response.json();
-
         app.comments = nComments;
         console.log (nComments);
     } catch(e) {
@@ -42,17 +40,14 @@ async function getComments() {
     }
 }
 
+/// Agrega un comentario
 async function postComment() {
-    
     var data = new FormData(formAddComment);
     let comment = {
         comentario: data.get('comentario'),
         puntuacion: data.get('puntuacion'),
         id_producto: getProductID(),
     }
-
-    console.log (comment);
-
     try {
         let response = await fetch(API_URL, {
             method: "POST",
@@ -66,27 +61,23 @@ async function postComment() {
             let comment = await response.json();
             app.comments.push(comment);
         }
-
     } catch(e) {
         console.log(e)
     }
 }
 
+/// Elimina un comentario
 async function deleteComment(id) {
-
-        
-
-        try {
-            let response = await fetch(API_URL + id , {
-                "method": "DELETE"
-            });
-            if (response.ok) {
-                console.log("Comentario eliminado con exito");
-            }
+    try {
+        let response = await fetch(API_URL + id , {
+            "method": "DELETE"
+        });
+        if (response.ok) {
+            console.log("Comentario eliminado con exito");
         }
-        catch (e) {
-            console.log(e);
-        }
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 getComments();
