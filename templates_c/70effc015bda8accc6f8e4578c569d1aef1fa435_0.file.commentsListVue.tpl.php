@@ -1,8 +1,31 @@
+<?php
+/* Smarty version 3.1.39, created on 2021-11-23 00:35:04
+  from '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl' */
 
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_619c2928810733_73088191',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '70effc015bda8accc6f8e4578c569d1aef1fa435' => 
+    array (
+      0 => '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl',
+      1 => 1637624102,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_619c2928810733_73088191 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 
-{if ($logged == "A") || ($logged == "N")} 
+<?php if (($_smarty_tpl->tpl_vars['logged']->value == "A") || ($_smarty_tpl->tpl_vars['logged']->value == "N")) {?> 
 
-    {literal}
+    
     <div id="app">
     
         <form id='formAddComment' @submit='addComment' method='POST' >
@@ -31,13 +54,13 @@
             <br>
             <br>
         </form>
-    {/literal}
+    
 
-{/if}
+<?php }?>
 
     
 
-    {literal}
+    
     <div id="app">
         <form @submit='delComment' method='POST'>
     
@@ -45,21 +68,23 @@
                 <h5>Comentario | Puntuacion</h5>     
                 <li v-for="comentario in comments" class="list-group-item d-flex">
                     {{comentario.comentario}} | {{comentario.puntuacion}}
-    {/literal}
-    {if ($logged == "A")} 
-        {literal}
+    
+    <?php if (($_smarty_tpl->tpl_vars['logged']->value == "A")) {?> 
+        
      
                 <div class="acciones ms-auto" >
                     <button class="btn btn-sm btn-danger" v-on:click="delComment(comentario.id)">Borrar</button>
                 </div>
           
-        {/literal}
-    {/if}
+        
+    <?php }?>
 
-    {literal}
+    
         <div id="app">
 
                     </li>             
                 </ul>
             </form>
-    {/literal}
+    
+<?php }
+}

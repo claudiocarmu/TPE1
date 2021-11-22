@@ -67,24 +67,5 @@ class ProductoView {
         $this->smarty->assign('error', $error);       
         $this->smarty->display('templates/showErrorDelCategory.tpl');    
     }
-
-    function formAltaComentario($id_producto) {
-        $this->smarty->assign('titulo', 'Alta de comentario');
-        $this->smarty->assign('producto', $id_producto);
-        $this->smarty->display('templates/formAltaComentario.tpl');
-    }
-    
-    function showComments($productComments,$producto) {
-        $this->smarty->assign('titulo', 'Comentarios del producto');
-        // $this->smarty->assign('producto', $producto->descripcion);
-        $this->smarty->assign('comentarios', $productComments);
-        $this->smarty->display('templates/showComments.tpl');
-    }
-
-    function showAddComment($id_producto) {
-        $this->smarty->display('templates/formAltaComentario.tpl');
-        $this->smarty->assign('producto', $id_producto);
-    }
-
        
 }

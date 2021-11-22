@@ -1,8 +1,32 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.39, created on 2021-11-22 23:30:34
+  from '/opt/lampp/htdocs/TPE1/templates/header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_619c1a0a5d2258_88935338',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '507a8baca44482fa6634b8943d4f34aae2ef04af' => 
+    array (
+      0 => '/opt/lampp/htdocs/TPE1/templates/header.tpl',
+      1 => 1637619922,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_619c1a0a5d2258_88935338 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="{BASE_URL}">
+    <base href="<?php echo BASE_URL;?>
+">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +35,9 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"><?php echo '</script'; ?>
+>
 </head>
 
 <body>
@@ -50,21 +76,22 @@
                         </ul>
                     </li>
                     <li class="nav-item ms-auto">
-                            {if isset($smarty.session.USER_ID)} 
-                                <a class="nav-link" href="logout">{$smarty.session.USER_EMAIL} - Logout</a>
-                                {if ($smarty.session.USER_ROL == 'A')}
+                            <?php if ((isset($_SESSION['USER_ID']))) {?> 
+                                <a class="nav-link" href="logout"><?php echo $_SESSION['USER_EMAIL'];?>
+ - Logout</a>
+                                <?php if (($_SESSION['USER_ROL'] == 'A')) {?>
                                     <li>
                                         <a class="nav-link" href="usuarios">Usuarios</a>
                                     </li>
-                                {/if}
-                            {else}
+                                <?php }?>
+                            <?php } else { ?>
                                 <li>
                                     <a class="nav-link" href="login">Ingresar</a>
                                 </li>
                                 <li>
                                     <a class="nav-link" href="register">Registrarse</a>
                                 </li>
-                            {/if}
+                            <?php }?>
                     </li>
 
                 </ul>
@@ -75,4 +102,5 @@
     </header>
     
     <!-- inicia el contenido principal -->
-    <div class="container">
+    <div class="container"><?php }
+}

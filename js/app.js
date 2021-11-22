@@ -1,6 +1,7 @@
 "use strict"
 
 const API_URL = "api/comentarios/"; 
+const logged = "A";
 
 let app = new Vue({
     el: "#app",
@@ -11,12 +12,13 @@ let app = new Vue({
 
     methods: {
         /// Agrega un comentario
-        addComment: function () {
-        postComment();
+        addComment: function (e) {
+            e.preventDefault();
+            postComment();
         },
         /// Elimina un comentario
         delComment: function (id) {
-        deleteComment(id);
+            deleteComment(id);
         }
     }
 });
@@ -38,6 +40,7 @@ async function getComments() {
     } catch(e) {
         console.log(e);
     }
+    
 }
 
 /// Agrega un comentario

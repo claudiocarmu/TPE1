@@ -25,7 +25,10 @@
 
 <div class="col-md-8" id="listCommentsVue" data-idProducto="{$item->id}">
         <!-- hueco para CSR -->
-        {include file="vue/commentsListVue.tpl"}
+
+        {* Pasar parámetro al .tpl VUE *}
+        {include file="vue/commentsListVue.tpl" logged="A"}  
+        {*  *}
 </div>
 
 <script src = "js/app.js"> </script>

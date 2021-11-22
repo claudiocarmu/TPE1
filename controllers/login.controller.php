@@ -36,7 +36,7 @@ class AuthController {
                 session_start();
                 $_SESSION['USER_ID'] = $user->id;
                 $_SESSION['USER_EMAIL'] = $user->email;
-                $_SESSION['USER_ROL'] = 'A';
+                $_SESSION['USER_ROL'] = $user->rol;
                 header("Location: " . BASE_URL);
             } else {
                 $this->view->showFormLogin("Usuario o contraseña inválida");
