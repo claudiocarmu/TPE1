@@ -43,8 +43,13 @@ class ProductoController {
     function viewDetailProduct($id) {
         $producto = $this->productoModel->obtenerProducto($id);
         $categoria = $this->categoriaModel->obtenerCategoria($producto->categoria);
-        $rol = $_SESSION['USER_ROL'];
-        $this->view->showDetailProduct($producto, $categoria,$rol);
+        if (!empty($_SESSION['USER_ID'])) {
+            $rol = $_SESSION['USER_ROL'];
+        }
+        else {
+            $rol = "X";
+        }
+        $this->view->showDetailProduct($producto, $categoria, $rol);
     }
 
     /// Agrega un producto
