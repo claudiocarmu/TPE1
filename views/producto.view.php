@@ -32,10 +32,11 @@ class ProductoView {
         $this->smarty->display('templates/showCategories.tpl');
     }
     
-    function showDetailProduct($productos, $categoria) {
+    function showDetailProduct($productos, $categoria, $rol) {
         $this->smarty->assign('titulo', 'Detalle de producto');
         $this->smarty->assign('item',$productos);
         $this->smarty->assign('categoria',$categoria);
+        $this->smarty->assign('rol',$rol);
         $this->smarty->display('templates/showDetailItems.tpl');
     }
 

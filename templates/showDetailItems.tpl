@@ -26,8 +26,8 @@
 <div class="col-md-8" id="listCommentsVue" data-idProducto="{$item->id}">
         <!-- hueco para CSR -->
 
-        {* Pasar parámetro al .tpl VUE *}
-        {include file="vue/commentsListVue.tpl" logged="A"}  
+        {* Se pasa parámetro rol al .tpl VUE *}
+        {include file="vue/commentsListVue.tpl" logged={$rol}}  
         {*  *}
 </div>
 

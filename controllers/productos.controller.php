@@ -43,7 +43,8 @@ class ProductoController {
     function viewDetailProduct($id) {
         $producto = $this->productoModel->obtenerProducto($id);
         $categoria = $this->categoriaModel->obtenerCategoria($producto->categoria);
-        $this->view->showDetailProduct($producto, $categoria);
+        $rol = $_SESSION['USER_ROL'];
+        $this->view->showDetailProduct($producto, $categoria,$rol);
     }
 
     /// Agrega un producto
