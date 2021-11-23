@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 03:32:33
+/* Smarty version 3.1.39, created on 2021-11-24 00:51:18
   from '/opt/lampp/htdocs/TPE1/templates/showDetailItems.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619c52c1c6e7b2_13370857',
+  'unifunc' => 'content_619d7e76cb1713_61194555',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4b4c3ec3099d06bedafa8ad23eff92626c7234f2' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/showDetailItems.tpl',
-      1 => 1637634725,
+      1 => 1637711473,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619c52c1c6e7b2_13370857 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d7e76cb1713_61194555 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -49,6 +49,10 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
 </td> 
         <td><?php echo $_smarty_tpl->tpl_vars['categoria']->value->descripcion;?>
 </td>
+        <?php if ((isset($_smarty_tpl->tpl_vars['item']->value->imagen))) {?>
+            <img src="<?php echo $_smarty_tpl->tpl_vars['item']->value->imagen;?>
+">
+        <?php }?>
 
     </tr>    
 

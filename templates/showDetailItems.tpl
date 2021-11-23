@@ -18,6 +18,9 @@
         <td>{$item->precio}</td> 
         <td>{$item->stock}</td> 
         <td>{$categoria->descripcion}</td>
+        {if isset ($item->imagen)}
+            <img src="{$item->imagen}">
+        {/if}
 
     </tr>    
 
