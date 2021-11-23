@@ -5,7 +5,7 @@
 <h1 class="title"> {$titulo} </h1>
 
 
-<form name='formulario' action='modificar/{$producto->id}' method='GET' class='my-4' enctype="multipart/form-data">
+<form name='formulario' action='modificar/{$producto->id}' method='GET' class='my-4'>
     <div class='row'>
         <div class='col-2'>
             <div class='form-group'>
@@ -44,10 +44,6 @@
                 <label>Stock</label>
                 <input name='stock' class='form-control' value={$producto->stock}>
             </div>
-        </div>
-        <div class='col-5'>
-            <label>Imagen relacionada (JPG)</label>
-            <input type="file" name="input_name" id="imageToUpload">
         </div>
     </div>
     <button type='submit' class='btn btn-primary mt-2'>Guardar Modificación</button>

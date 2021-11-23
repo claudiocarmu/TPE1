@@ -38,20 +38,10 @@ class ProductoModel {
     }
 
     /// Agrega un producto
-    function agregarProducto($sku, $descripcion, $precio, $categoria, $stock, $imagen=null) {
-        $pathImg = null;
-        if ($imagen) {
-            $pathImg = $this->upLoadImage($imagen);
-        }
-        $query = $this->db->prepare('INSERT INTO productos(sku, descripcion, precio, categoria, stock, imagen) VALUES (?, ?, ?, ?, ?, ?)');
-        $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $pathImg]);
+    function agregarProducto($sku, $descripcion, $precio, $categoria, $stock) {
+        $query = $this->db->prepare('INSERT INTO productos(sku, descripcion, precio, categoria, stock) VALUES (?, ?, ?, ?, ?)');
+        $query->execute([$sku, $descripcion, $precio, $categoria, $stock]);
         return $this->db->lastInsertId();
-    }
-
-    private function upLoadImage($image) {
-        $target = 'imgs/articles/' . uniqid() . '.jpg';
-        move_uploaded_file($image, $target);
-        return $target;
     }
     
     /// Elimina un producto
@@ -61,11 +51,10 @@ class ProductoModel {
     }
 
     /// Modifica un producto
-    function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock, $pathImg=null) {
-        
+    function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock) {
         try{
-            $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, categoria=?, stock=?, pathImg=? WHERE id=?');
-            $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $id, $pathImg]);
+            $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, categoria=?, stock=? WHERE id=?');
+            $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $id]);
         }
         catch (PDOException $error) {
             $error->getMessage();
