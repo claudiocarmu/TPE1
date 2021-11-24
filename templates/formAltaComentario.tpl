@@ -2,9 +2,9 @@
 
 <form method="POST" class="my-4" id="formAltaComentario">
     <div class="row">
-        <div class="">
-            {* Comentario de producto: {$producto} *}
-        </div>
+        {* <div class="">
+            Comentario de producto: {$producto}
+        </div> *}
     
         <div class="col-9">
             <div class="form-group">
@@ -12,13 +12,6 @@
                 <input name="comentario" type="text" class="form-control">
             </div>
         </div>
-
-        {* <div class="col-9">
-            <div class="form-group">
-                <label>Id_Producto</label>
-                <input name="id_producto" type="text">
-            </div>
-        </div> *}
 
         <div class="col-3">
             <div class="form-group">
