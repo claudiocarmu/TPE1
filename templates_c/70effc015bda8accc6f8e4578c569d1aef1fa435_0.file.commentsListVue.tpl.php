@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 00:35:04
+/* Smarty version 3.1.39, created on 2021-11-24 01:53:16
   from '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619c2928810733_73088191',
+  'unifunc' => 'content_619d8cfc6cc019_86459213',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '70effc015bda8accc6f8e4578c569d1aef1fa435' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/vue/commentsListVue.tpl',
-      1 => 1637624102,
+      1 => 1637715188,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619c2928810733_73088191 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d8cfc6cc019_86459213 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php if (($_smarty_tpl->tpl_vars['logged']->value == "A") || ($_smarty_tpl->tpl_vars['logged']->value == "N")) {?> 
@@ -65,7 +65,8 @@ function content_619c2928810733_73088191 (Smarty_Internal_Template $_smarty_tpl)
         <form @submit='delComment' method='POST'>
     
             <ul id="comment-list" class="list-group">
-                <h5>Comentario | Puntuacion</h5>     
+                <h5>Comentario | Puntuacion</h5>  
+                  
                 <li v-for="comentario in comments" class="list-group-item d-flex">
                     {{comentario.comentario}} | {{comentario.puntuacion}}
     
@@ -79,6 +80,7 @@ function content_619c2928810733_73088191 (Smarty_Internal_Template $_smarty_tpl)
         
     <?php }?>
 
+    
     
         <div id="app">
 

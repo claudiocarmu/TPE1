@@ -42,7 +42,8 @@
         <form @submit='delComment' method='POST'>
     
             <ul id="comment-list" class="list-group">
-                <h5>Comentario | Puntuacion</h5>     
+                <h5>Comentario | Puntuacion</h5>  
+                  
                 <li v-for="comentario in comments" class="list-group-item d-flex">
                     {{comentario.comentario}} | {{comentario.puntuacion}}
     {/literal}
@@ -57,6 +58,7 @@
     {/if}
 
     {literal}
+    
         <div id="app">
 
                     </li>             

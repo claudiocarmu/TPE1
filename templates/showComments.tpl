@@ -7,7 +7,6 @@
 <ul class="list-group list-unstyled mt-5">
 
 <table class='table table-sm' id="listaComentarios">
-
      {* Acá va hueco para mostrar comentarios CSR *}
 </table>
 
