@@ -107,6 +107,9 @@
             $controller = new ProductoController();
             $controller->showProductsOfCategory($params[1]);  
             break;
+        case 'delImage':
+            $controller = new ProductoController();
+            $controller->delImage($params[1]);
         default:
             echo '404 - Página no encontrada';
             break;

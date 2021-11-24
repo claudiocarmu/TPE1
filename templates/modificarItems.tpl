@@ -4,7 +4,6 @@
 {* Titulo modificación *}
 <h1 class="title"> {$titulo} </h1>
 
-
 <form name='formulario' action='modificar/{$producto->id}' method='GET' class='my-4'>
     <div class='row'>
         <div class='col-2'>
@@ -44,8 +43,17 @@
                 <label>Stock</label>
                 <input name='stock' class='form-control' value={$producto->stock}>
             </div>
-        </div>
+        </div>        
     </div>
+    {if isset($producto->imagen)}
+            <img src="{$producto->imagen}" height="100" width="100">
+            <a class="dropdown-item" href="delImage/{$producto->id}">Eliminar Imagen</a>
+    {else}
+        <div class="form-group">
+            <input type="file" name="input_name" id="imageToUpload">
+        </div>
+    {/if}
+
     <button type='submit' class='btn btn-primary mt-2'>Guardar Modificación</button>
 </form>
 

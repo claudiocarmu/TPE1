@@ -112,7 +112,17 @@ class ProductoController {
         }
     }
 
+    // Borra la imágen de un producto
+    function delImage($id) {
+        $pathImage=null;
+        $this->productoModel->borrarImagen($id, $pathImage);
+        header("Location: " . BASE_URL. "listProducts");
+    }
 
+    
+
+
+    
     /// FUNCIONES DE CATEGORIAS
     
     /// Muestra el listado de categorías con los botones

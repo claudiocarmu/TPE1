@@ -22,7 +22,7 @@
 
     <div>
         {if isset($item->imagen)}
-            <img src="{$item->imagen}"/>
+            <img src="{$item->imagen}" height="100" width="100">
         {/if}
     </div>
 

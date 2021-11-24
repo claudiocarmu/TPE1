@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-24 00:59:02
+/* Smarty version 3.1.39, created on 2021-11-24 20:47:23
   from '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619d80465850c7_18355468',
+  'unifunc' => 'content_619e96cbd02fa1_34238132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '43ab196b243497261a9dc1a35ef34eaa538b354e' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl',
-      1 => 1637711925,
+      1 => 1637783239,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619d80465850c7_18355468 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619e96cbd02fa1_34238132 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <h1 class="title"> <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
  </h1>
-
 
 <form name='formulario' action='modificar/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 ' method='GET' class='my-4'>
@@ -85,8 +84,19 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <input name='stock' class='form-control' value=<?php echo $_smarty_tpl->tpl_vars['producto']->value->stock;?>
 >
             </div>
-        </div>
+        </div>        
     </div>
+    <?php if ((isset($_smarty_tpl->tpl_vars['producto']->value->imagen))) {?>
+            <img src="<?php echo $_smarty_tpl->tpl_vars['producto']->value->imagen;?>
+" height="100" width="100">
+            <a class="dropdown-item" href="delImage/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
+">Eliminar Imagen</a>
+    <?php } else { ?>
+        <div class="form-group">
+            <input type="file" name="input_name" id="imageToUpload">
+        </div>
+    <?php }?>
+
     <button type='submit' class='btn btn-primary mt-2'>Guardar Modificación</button>
 </form>
 

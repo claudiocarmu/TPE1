@@ -48,7 +48,7 @@ class ProductoModel {
         return $this->db->lastInsertId();
     }
 
-    function uploadImage($image){
+    private function uploadImage($image){
         $target = 'imgs/articles/' . uniqid() . '.jpg';
         move_uploaded_file($image, $target);
         return $target;
@@ -61,6 +61,11 @@ class ProductoModel {
         $query->execute([$id]);
     }
 
+    function borrarImagen($id, $pathImg) {
+        $query = $this->db->prepare('UPDATE productos SET imagen=? WHERE id=?');
+        $query->execute([$pathImg, $id]);
+    }
+ 
     /// Modifica un producto
     function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock) {
         try{
