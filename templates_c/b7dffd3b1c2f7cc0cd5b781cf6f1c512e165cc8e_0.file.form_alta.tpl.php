@@ -1,29 +1,28 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-24 13:45:27
+/* Smarty version 3.1.39, created on 2021-11-24 14:21:23
   from '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619e33e7034a14_89714007',
+  'unifunc' => 'content_619e3c53482bb0_66093791',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b7dffd3b1c2f7cc0cd5b781cf6f1c512e165cc8e' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl',
-      1 => 1637757911,
+      1 => 1637760071,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:templates/header.tpl' => 1,
-    'file:templates/ordenPuntaje.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619e33e7034a14_89714007 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619e3c53482bb0_66093791 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Agrego un producto -->
 <?php $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -31,7 +30,7 @@ function content_619e33e7034a14_89714007 (Smarty_Internal_Template $_smarty_tpl)
 <h1 class="title"> <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
  </h1>
 
-<form action="addProduct" method="POST" class="my-3">
+<form action="addProduct" method="POST" class="my-3" enctype="multipart/form-data">
     <div class="row">
     <div class='col-2'>
         <div class='form-group'>
@@ -76,11 +75,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <input name='stock' class='form-control'>
         </div>
     </div>
+
 </div>
 
-<div>
-    <?php $_smarty_tpl->_subTemplateRender('file:templates/ordenPuntaje.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
+<div class="form-group">
+    <input type="file" name="input_name" id="imageToUpload">
 </div>
 
 <div class='mt-2'>

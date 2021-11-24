@@ -62,7 +62,14 @@ class ProductoController {
             $precio = $_REQUEST['precio'];
             $categoria = $_REQUEST['categoria'];
             $stock = $_REQUEST['stock'];
-            $this->productoModel->agregarProducto($sku, $descripcion, $precio, $categoria, $stock);
+            if ($_FILES['input_name']['type'] == "image/jpg" || 
+                $_FILES['input_name']['type'] == "image/jpeg" ||
+                $_FILES['input_name']['type'] == "image/png" ) {
+                    $this->productoModel->agregarProducto($sku, $descripcion, $precio, $categoria, $stock, $_FILES['input_name']['tmp_name']);
+                }
+            else {
+                $this->productoModel->agregarProducto($sku, $descripcion, $precio, $categoria, $stock);
+            }
             header("Location: " . BASE_URL); 
         }
         else {

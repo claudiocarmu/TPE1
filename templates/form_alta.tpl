@@ -4,7 +4,7 @@
 {* Titulo modificación *}
 <h1 class="title"> {$titulo} </h1>
 
-<form action="addProduct" method="POST" class="my-3">
+<form action="addProduct" method="POST" class="my-3" enctype="multipart/form-data">
     <div class="row">
     <div class='col-2'>
         <div class='form-group'>
@@ -40,6 +40,11 @@
             <input name='stock' class='form-control'>
         </div>
     </div>
+
+</div>
+
+<div class="form-group">
+    <input type="file" name="input_name" id="imageToUpload">
 </div>
 
 <div class='mt-2'>

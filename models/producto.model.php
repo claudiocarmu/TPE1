@@ -38,11 +38,22 @@ class ProductoModel {
     }
 
     /// Agrega un producto
-    function agregarProducto($sku, $descripcion, $precio, $categoria, $stock) {
-        $query = $this->db->prepare('INSERT INTO productos(sku, descripcion, precio, categoria, stock) VALUES (?, ?, ?, ?, ?)');
-        $query->execute([$sku, $descripcion, $precio, $categoria, $stock]);
+    function agregarProducto($sku, $descripcion, $precio, $categoria, $stock, $imagen = null) {
+        $pathImg = null;
+        if ($imagen) {
+            $pathImg = $this->uploadImage($imagen);
+        }
+        $query = $this->db->prepare('INSERT INTO productos(sku, descripcion, precio, categoria, stock, imagen) VALUES (?, ?, ?, ?, ?, ?)');
+        $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $pathImg]);
         return $this->db->lastInsertId();
     }
+
+    function uploadImage($image){
+        $target = 'imgs/articles/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
+    }
+
     
     /// Elimina un producto
     function borrarProducto($id) {    
