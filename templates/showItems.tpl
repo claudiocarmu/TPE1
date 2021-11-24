@@ -5,16 +5,15 @@
 {* Encabezado de la lista *}
 <h1 class="title"> {$titulo} </h1>
 <ul class="list-group list-unstyled mt-5">
-<div class="table-responsive-sm">
+<div>
     <table class='table' >
         <tr>
-            <th>SKU</th> <th>DESCRIPCION</th> <th>PRECIO</th> <th>STOCK</th> <th>CATEGORIA</th>
+            <th>SKU</th> <th>DESCRIPCION</th> <th>PRECIO</th> <th>STOCK</th> <th>CATEGORIA</th><th>IMAGEN</th>
         </tr>
     {* listado *}
         {foreach from=$items item=item}
             
-            <tr>
-                
+            <tr>  
                 <td>{$item->sku}</td> 
                 <td>{$item->descripcion}</td> 
                 <td>{$item->precio}</td> 
