@@ -78,6 +78,36 @@ class ProductoController {
         }
     }
 
+     /// Mofifica el producto elegido
+     function getModifyProduct($id){
+        $this->authHelper->checkLoggedIn();
+    
+        if ((isset($_POST['sku']) || !empty($_POST['sku'])) && 
+           (isset($_POST['descripcion']) || !empty($_POST['descripcion'])) &&
+           (isset($_POST['precio']) || !empty($_POST['precio'])) &&
+           (isset($_POST['categoria']) || !empty($_POST['categoria'])) &&
+           (isset($_POST['stock']) || !empty($_POST['stock']))) {
+           $newSku = $_POST['sku'];
+           $newDescripcion = $_POST['descripcion'];
+           $newPrecio = $_POST['precio'];
+           $newCategoria = $_POST['categoria'];
+           $newStock = $_POST['stock'];
+
+           if ($_FILES['input_name']['type'] == "image/jpg" || 
+                $_FILES['input_name']['type'] == "image/jpeg" ||
+                $_FILES['input_name']['type'] == "image/png" ) { 
+                    $this->productoModel->modificarProducto($id, $newSku, $newDescripcion, $newPrecio, $newCategoria, $newStock, $_FILES['input_name']['tmp_name']);
+                }
+            else {
+                var_dump($_FILES['input_name']['tmp_name']);
+                $this->productoModel->modificarProducto($id, $newSku, $newDescripcion, $newPrecio, $newCategoria, $newStock);
+            }
+           
+            header("Location: " . BASE_URL. "listProducts"); 
+        }
+    }
+    
+
     /// Elimina un producto
     function delProducto($id) {
         $this->authHelper->checkLoggedIn();
@@ -93,33 +123,12 @@ class ProductoController {
         $this->view->showModifyProduct($producto, $categorias);
     }
 
-    /// Mofifica el producto elegido
-    function getModifyProduct($id){
-        $this->authHelper->checkLoggedIn();
-    
-        if ((isset($_GET['sku']) || !empty($_GET['sku'])) && 
-           (isset($_GET['descripcion']) || !empty($_GET['descripcion'])) &&
-           (isset($_GET['precio']) || !empty($_GET['precio'])) &&
-           (isset($_GET['categoria']) || !empty($_GET['categoria'])) &&
-           (isset($_GET['stock']) || !empty($_GET['stock']))) {
-           $newSku = $_GET['sku'];
-           $newDescripcion = $_GET['descripcion'];
-           $newPrecio = $_GET['precio'];
-           $newCategoria = $_GET['categoria'];
-           $newStock = $_GET['stock'];
-           $this->productoModel->modificarProducto($id, $newSku, $newDescripcion, $newPrecio, $newCategoria, $newStock);
-           header("Location: " . BASE_URL. "listProducts"); 
-        }
-    }
-
     // Borra la imágen de un producto
     function delImage($id) {
         $pathImage=null;
         $this->productoModel->borrarImagen($id, $pathImage);
         header("Location: " . BASE_URL. "listProducts");
     }
-
-    
 
 
     

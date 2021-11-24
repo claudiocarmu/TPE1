@@ -4,7 +4,7 @@
 {* Titulo modificación *}
 <h1 class="title"> {$titulo} </h1>
 
-<form name='formulario' action='modificar/{$producto->id}' method='GET' class='my-4'>
+<form name='formulario' action='modificar/{$producto->id}' method='POST' class='my-4' enctype="multipart/form-data">
     <div class='row'>
         <div class='col-2'>
             <div class='form-group'>
@@ -50,7 +50,7 @@
             <a class="dropdown-item" href="delImage/{$producto->id}">Eliminar Imagen</a>
     {else}
         <div class="form-group">
-            <input type="file" name="input_name" id="imageToUpload">
+            <input class="my-3" type="file" name="input_name" id="imageToUpload">
         </div>
     {/if}
 

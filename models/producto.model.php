@@ -48,6 +48,19 @@ class ProductoModel {
         return $this->db->lastInsertId();
     }
 
+    /// Modifica un producto
+    function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock, $imagen = null) {
+        try{
+            $pathImg = $this->uploadImage($imagen);
+            $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, categoria=?, stock=?, imagen=? WHERE id=?');
+            $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $pathImg, $id]);
+        }
+        catch (PDOException $error) {
+            $error->getMessage();
+            echo $error;
+        }
+    }    
+
     private function uploadImage($image){
         $target = 'imgs/articles/' . uniqid() . '.jpg';
         move_uploaded_file($image, $target);
@@ -65,19 +78,5 @@ class ProductoModel {
         $query = $this->db->prepare('UPDATE productos SET imagen=? WHERE id=?');
         $query->execute([$pathImg, $id]);
     }
- 
-    /// Modifica un producto
-    function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock) {
-        try{
-            $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, categoria=?, stock=? WHERE id=?');
-            $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $id]);
-        }
-        catch (PDOException $error) {
-            $error->getMessage();
-            echo $error;
-        }
-    }    
-
-
      
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-24 20:47:23
+/* Smarty version 3.1.39, created on 2021-11-24 22:39:00
   from '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619e96cbd02fa1_34238132',
+  'unifunc' => 'content_619eb0f4ec0143_23068669',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '43ab196b243497261a9dc1a35ef34eaa538b354e' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/modificarItems.tpl',
-      1 => 1637783239,
+      1 => 1637789864,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619e96cbd02fa1_34238132 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619eb0f4ec0143_23068669 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -30,7 +30,7 @@ $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cach
  </h1>
 
 <form name='formulario' action='modificar/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
-' method='GET' class='my-4'>
+' method='POST' class='my-4' enctype="multipart/form-data">
     <div class='row'>
         <div class='col-2'>
             <div class='form-group'>
@@ -93,7 +93,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 ">Eliminar Imagen</a>
     <?php } else { ?>
         <div class="form-group">
-            <input type="file" name="input_name" id="imageToUpload">
+            <input class="my-3" type="file" name="input_name" id="imageToUpload">
         </div>
     <?php }?>
 
