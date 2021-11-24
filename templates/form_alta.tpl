@@ -41,6 +41,7 @@
         </div>
     </div>
 </div>
+
 <div class='mt-2'>
     <button type="submit" class="btn btn-secondary btn-sm">Agregar</button>
 </div> 

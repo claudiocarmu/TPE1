@@ -1,28 +1,29 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-24 00:58:56
+/* Smarty version 3.1.39, created on 2021-11-24 13:45:27
   from '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619d8040ba3b75_47568376',
+  'unifunc' => 'content_619e33e7034a14_89714007',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b7dffd3b1c2f7cc0cd5b781cf6f1c512e165cc8e' => 
     array (
       0 => '/opt/lampp/htdocs/TPE1/templates/form_alta.tpl',
-      1 => 1637711925,
+      1 => 1637757911,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:templates/header.tpl' => 1,
+    'file:templates/ordenPuntaje.tpl' => 1,
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619d8040ba3b75_47568376 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619e33e7034a14_89714007 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Agrego un producto -->
 <?php $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -76,6 +77,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
     </div>
 </div>
+
+<div>
+    <?php $_smarty_tpl->_subTemplateRender('file:templates/ordenPuntaje.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+</div>
+
 <div class='mt-2'>
     <button type="submit" class="btn btn-secondary btn-sm">Agregar</button>
 </div> 
