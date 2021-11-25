@@ -62,7 +62,18 @@ class ProductoModel {
     }    
 
     private function uploadImage($image){
-        $target = 'imgs/articles/' . uniqid() . '.jpg';
+        
+        $extension = pathinfo($image, PATHINFO_EXTENSION);
+
+        if ($extension == 'jpg') {
+            $target = 'imgs/articles/' . uniqid() . '.jpg';
+        }
+        elseif ($extension == 'jpeg') { 
+            $target = 'imgs/articles/' . uniqid() . '.jpeg';
+        }
+        else {
+            $target = 'imgs/articles/' . uniqid() . '.png';
+        }
         move_uploaded_file($image, $target);
         return $target;
     }
