@@ -51,9 +51,18 @@ class ProductoModel {
     /// Modifica un producto
     function modificarProducto($id, $sku, $descripcion, $precio, $categoria, $stock, $imagen = null) {
         try{
-            $pathImg = $this->uploadImage($imagen);
-            $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, categoria=?, stock=?, imagen=? WHERE id=?');
-            $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $pathImg, $id]);
+            if ($imagen) {
+                $pathImg = $this->uploadImage($imagen);
+                $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, 
+                                                    categoria=?, stock=?, imagen=? WHERE id=?');
+                $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $pathImg, $id]);
+            }
+            else {
+                $query = $this->db->prepare('UPDATE productos SET sku=?, descripcion=?, precio=?, 
+                                                    categoria=?, stock=? WHERE id=?');
+                $query->execute([$sku, $descripcion, $precio, $categoria, $stock, $id]);
+            }
+            
         }
         catch (PDOException $error) {
             $error->getMessage();
